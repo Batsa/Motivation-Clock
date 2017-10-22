@@ -3,6 +3,9 @@ package com.blogspot.pocketma.motivationclock;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.net.Uri;
+import android.view.MenuItem;
 import android.view.View;
 
 public class home extends AppCompatActivity {
@@ -31,5 +34,27 @@ public class home extends AppCompatActivity {
     {
         Intent newIntent = new Intent(this, achievements.class);
         startActivity(newIntent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_name) {
+            Intent action = new Intent(Intent.ACTION_VIEW,Uri.parse("https://pocketma.blogspot.com"));
+            startActivity(action);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
