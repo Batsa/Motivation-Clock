@@ -1,8 +1,12 @@
 package com.blogspot.pocketma.motivationclock;
 
 import android.content.Intent;
+import android.net.Uri;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 public class alarm_change extends AppCompatActivity {
@@ -30,12 +34,6 @@ public class alarm_change extends AppCompatActivity {
     public void openAchievements(View view)
     {
         Intent newIntent = new Intent(this, achievements.class);
-        startActivity(newIntent);
-    }
-
-    public void open_Add_Alarm(View view)
-    {
-        Intent newIntent = new Intent(this, add_alarm.class);
         startActivity(newIntent);
     }
 }
