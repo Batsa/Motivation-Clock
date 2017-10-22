@@ -5,13 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class alarm_change extends AppCompatActivity {
+public class add_alarm extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alarm_change);
+        setContentView(R.layout.activity_add_alarm);
     }
+
     public void openHome(View view)
     {
         Intent newIntent = new Intent(this, home.class);
@@ -33,9 +34,5 @@ public class alarm_change extends AppCompatActivity {
         startActivity(newIntent);
     }
 
-    public void open_Add_Alarm(View view)
-    {
-        Intent newIntent = new Intent(this, add_alarm.class);
-        startActivity(newIntent);
-    }
+
 }

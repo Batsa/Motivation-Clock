@@ -51,6 +51,8 @@
             android:onClick="openAchievements"
             android:text="Achieve" />
 
+
+
     </android.widget.LinearLayout>
 
 </android.widget.RelativeLayout>
