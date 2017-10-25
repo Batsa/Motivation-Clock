@@ -15,34 +15,43 @@ public class home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
     }
+
+    // When called, will open the Home Page
     public void openHome(View view)
     {
         Intent newIntent = new Intent(this, home.class);
         startActivity(newIntent);
     }
+
+    // When called, will open the Alarm Page
     public void openAlarm(View view)
     {
         Intent newIntent = new Intent(this, alarm_change.class);
         startActivity(newIntent);
     }
+
+    // When called, will open Choose Task Page
     public void openBored(View view)
     {
         Intent newIntent = new Intent(this, choose_task.class);
         startActivity(newIntent);
     }
+
+    // When Called, will open the Achievements page
     public void openAchievements(View view)
     {
         Intent newIntent = new Intent(this, achievements.class);
         startActivity(newIntent);
     }
 
+    // Creates the help button on the top right corner of the screen
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
+    // Redirects the user to the team website when the help button is clicked
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
