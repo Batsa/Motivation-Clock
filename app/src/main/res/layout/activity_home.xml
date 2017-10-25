@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is the home page!"
+        android:text="@string/this_is_the_home_page"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -20,13 +20,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         >
+
         <Button
             android:id="@+id/button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="openHome"
-            android:text="Home"/>
+            android:text="@string/home" />
 
         <Button
             android:id="@+id/button2"
@@ -34,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="openAlarm"
-            android:text="Alarm" />
+            android:text="@string/alarm" />
 
         <Button
             android:id="@+id/button3"
@@ -42,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="openBored"
-            android:text="Bored" />
+            android:text="@string/bored" />
 
         <Button
             android:id="@+id/button4"
@@ -50,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="openAchievements"
-            android:text="Achieve" />
+            android:text="@string/achieve" />
 
 
 
