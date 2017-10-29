@@ -22,7 +22,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        >
+        android:id="@+id/linearLayout2">
 
         <Button
             android:id="@+id/button"
@@ -83,9 +83,10 @@
     <android.widget.LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:orientation="vertical"
-        >
+        android:layout_above="@+id/linearLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
             <EditText
                 android:id="@+id/editText"
                 android:layout_width="fill_parent"
@@ -137,4 +138,12 @@
 
 
     </android.widget.LinearLayout>
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:timePickerMode="spinner"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true" />
 </android.widget.RelativeLayout>
