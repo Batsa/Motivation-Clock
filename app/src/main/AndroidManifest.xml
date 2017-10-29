@@ -19,6 +19,7 @@
         <activity android:name=".alarm_change" />
         <activity android:name=".choose_task" />
         <activity android:name=".achievements" />
+        <activity android:name=".ListTasks"/>
         <activity android:name=".add_alarm"
             android:screenOrientation="portrait">
         </activity>
