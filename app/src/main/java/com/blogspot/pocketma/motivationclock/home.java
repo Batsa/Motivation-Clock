@@ -1,6 +1,8 @@
+
 package com.blogspot.pocketma.motivationclock;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,7 +10,16 @@ import android.net.Uri;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.firebase.ui.auth.AuthUI;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Arrays;
+
 public class home extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,4 +77,5 @@ public class home extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

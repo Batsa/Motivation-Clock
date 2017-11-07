@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "140407439603",
+    "firebase_url": "https://motivation-clock.firebaseio.com",
+    "project_id": "motivation-clock",
+    "storage_bucket": "motivation-clock.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140407439603:android:76d57d0b03fd230b",
+        "android_client_info": {
+          "package_name": "com.blogspot.pocketma.motivationclock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140407439603-tsu7dti77a6ga1vpu9ibgllqaqspo7q1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blogspot.pocketma.motivationclock",
+            "certificate_hash": "560ba02dcf18dc7162caa96ad9fdc6707b7eb106"
+          }
+        },
+        {
+          "client_id": "140407439603-dr3v7memtldndm4r50r6gbufj9cqv9ua.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBW2yAap0mBASuglMsUDIix59HN1TIhJ_o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140407439603-dr3v7memtldndm4r50r6gbufj9cqv9ua.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

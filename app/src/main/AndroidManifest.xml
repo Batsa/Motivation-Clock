@@ -10,18 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".home">
+        </activity>
+        <activity android:name=".alarm_change" />
+        <activity android:name=".choose_task" />
+        <activity android:name=".achievements" />
+        <activity android:name=".ListTasks" />
+        <activity
+            android:name=".add_alarm"
+            android:screenOrientation="portrait" />
+        <activity android:name=".login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".alarm_change" />
-        <activity android:name=".choose_task" />
-        <activity android:name=".achievements" />
-        <activity android:name=".ListTasks"/>
-        <activity android:name=".add_alarm"
-            android:screenOrientation="portrait">
         </activity>
     </application>
 
