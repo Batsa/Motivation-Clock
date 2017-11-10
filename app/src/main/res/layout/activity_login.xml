@@ -6,4 +6,10 @@
     android:layout_height="match_parent"
     tools:context="com.blogspot.pocketma.motivationclock.login">
 
+    <com.google.android.gms.common.SignInButton
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/googleBtn"></com.google.android.gms.common.SignInButton>
+
+
 </android.support.constraint.ConstraintLayout>
