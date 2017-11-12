@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "140407439603-61pcoa9jramij2ecsd5k803l4n9bia1o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blogspot.pocketma.motivationclock",
+            "certificate_hash": "579062ff0bcf4a9aec7f8a055dd21956d2dd0adf"
+          }
+        },
+        {
+          "client_id": "140407439603-uagq2oc7n93p5dch8t22ru3duiigbdjl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blogspot.pocketma.motivationclock",
+            "certificate_hash": "9827083c8dded3b6aaac98905a41731ff2eadc5a"
+          }
+        },
+        {
           "client_id": "140407439603-tsu7dti77a6ga1vpu9ibgllqaqspo7q1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
