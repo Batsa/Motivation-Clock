@@ -9,14 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".home">
-        </activity>
-        <activity android:name=".alarm_change" />
-        <activity android:name=".choose_task" />
-        <activity android:name=".achievements" />
-        <activity android:name=".ListTasks" />
-        <activity
-            android:name=".add_alarm"
+        <activity android:name=".home"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".alarm_change"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".choose_task"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".achievements"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ListTasks"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".add_alarm"
+            android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity android:name=".login">
             <intent-filter>
