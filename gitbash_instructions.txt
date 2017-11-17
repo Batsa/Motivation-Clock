@@ -22,3 +22,18 @@ Then push it to site:
 $git push
 OR 
 $git push master
+
+IF fatal: The current branch master has no upstream branch.
+/if upstream pops up try this:
+$ git remote add master https://github.com/Team-U-CAN/Motivation-Clock
+OR
+$ git push --set-upstream master master
+Counting objects: 20, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (19/19), done.
+Writing objects: 100% (20/20), 11.05 KiB | 452.00 KiB/s, done.
+Total 20 (delta 9), reused 0 (delta 0)
+remote: Resolving deltas: 100% (9/9), completed with 8 local objects.
+To https://github.com/Team-U-CAN/Motivation-Clock
+   70e1efe..fbefeba  master -> master
+Branch 'master' set up to track remote branch 'master' from 'master'.

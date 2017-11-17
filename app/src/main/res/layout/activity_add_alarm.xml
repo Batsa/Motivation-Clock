@@ -96,9 +96,7 @@
                 android:layout_toStartOf="@+id/button8"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android::hint="Enter Alarm Name"
-        <!--android:text="Label" -->
-        />
+                android:hint="Enter Alarm Name" />
 
     <EditText
         android:id="@+id/editText2"
