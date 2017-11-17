@@ -88,7 +88,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/txtAlarmName"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -96,45 +96,47 @@
                 android:layout_toStartOf="@+id/button8"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Label" />
+                android::hint="Enter Alarm Name"
+        <!--android:text="Label" -->
+        />
 
-            <EditText
-                android:id="@+id/editText2"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/editText"
-                android:layout_alignRight="@+id/editText"
-                android:layout_below="@+id/editText"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Repeat" />
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/txtAlarmName"
+        android:layout_alignRight="@+id/txtAlarmName"
+        android:layout_below="@+id/txtAlarmName"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Repeat" />
 
-            <EditText
-                android:id="@+id/editText3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/editText3"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="28dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Snooze" />
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Snooze" />
 
-            <ToggleButton
-                android:id="@+id/toggleButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/editText3"
-                android:layout_alignBottom="@+id/editText3"
-                android:layout_alignEnd="@+id/toggleButton"
-                android:layout_alignRight="@+id/toggleButton"
-                android:text="ToggleButton"
-                android:textOff="Snooze Off"
-                android:textOn="Snooze On" />
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editText3"
+        android:layout_alignBottom="@+id/editText3"
+        android:layout_alignEnd="@+id/toggleButton"
+        android:layout_alignRight="@+id/toggleButton"
+        android:text="ToggleButton"
+        android:textOff="Snooze Off"
+        android:textOn="Snooze On" />
 
-        <!--this is the xml code for the alarm wheel
-        draw and canvas for wheel drawables
-        https://www.youtube.com/watch?v=R3AzhgzbpTc-->
+<!--this is the xml code for the alarm wheel
+draw and canvas for wheel drawables
+https://www.youtube.com/watch?v=R3AzhgzbpTc-->
 
 
     </android.widget.LinearLayout>

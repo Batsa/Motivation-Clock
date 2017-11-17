@@ -1,0 +1,24 @@
+tinar@DESKTOP-SFRP1QV MINGW64 ~/Documents/GitProjects
+$ git init
+Initialized empty Git repository in C:/Users/tinar/Documents/GitProjects/.git/
+
+tinar@DESKTOP-SFRP1QV MINGW64 ~/Documents/GitProjects (master)
+$ git pull https://github.com/Team-U-CAN/Motivation-Clock
+remote: Counting objects: 839, done.
+remote: Compressing objects: 100% (286/286), done.
+remote: Total 839 (delta 354), reused 543 (delta 290), pack-reused 216
+Receiving objects: 100% (839/839), 18.53 MiB | 4.59 MiB/s, done.
+Resolving deltas: 100% (421/421), done.
+From https://github.com/Team-U-CAN/Motivation-Clock
+ * branch            HEAD       -> FETCH_HEAD
+
+To add changes to github for all (*) files /filename
+$git add *
+
+To commit with a message for what the changes are:
+$git commit -m "my message"
+
+Then push it to site:
+$git push
+OR 
+$git push master
