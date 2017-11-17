@@ -28,18 +28,18 @@
        android:text="@string/save" />
 
    <EditText
-       android:id="@+id/editText8"
+       android:id="@+id/txtNew"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_marginTop="127dp"
-       android:ems="10"
-       android:inputType="textPersonName"
-       android:text="New Task"
        android:layout_below="@+id/button12"
+       android:layout_marginEnd="52dp"
+       android:layout_marginRight="52dp"
+       android:layout_marginTop="127dp"
        android:layout_toLeftOf="@+id/button8"
        android:layout_toStartOf="@+id/button8"
-       android:layout_marginRight="52dp"
-       android:layout_marginEnd="52dp" />
+       android:ems="10"
+       android:inputType="text"
+       android:hint="Enter New Task" />
 
 
 </RelativeLayout>

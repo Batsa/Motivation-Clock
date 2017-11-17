@@ -88,44 +88,44 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
             <EditText
-                android:id="@+id/txtAlarmName"
+                android:id="@+id/txtName"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/button8"
                 android:layout_toStartOf="@+id/button8"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:hint="Enter Alarm Name" />
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/txtAlarmName"
-        android:layout_alignRight="@+id/txtAlarmName"
-        android:layout_below="@+id/txtAlarmName"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Repeat" />
+        <EditText
+            android:id="@+id/txtRepeat"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/txtName"
+            android:layout_alignRight="@+id/txtName"
+            android:layout_below="@+id/txtName"
+            android:ems="10"
+            android:hint="Repeat"
+            android:inputType="text" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/txtSnooze"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText3"
+        android:layout_below="@+id/txtSnooze"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Snooze" />
+        android:inputType="text"
+        android:hint="Snooze" />
 
     <ToggleButton
         android:id="@+id/toggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editText3"
-        android:layout_alignBottom="@+id/editText3"
+        android:layout_alignBaseline="@+id/txtSnooze"
+        android:layout_alignBottom="@+id/txtSnooze"
         android:layout_alignEnd="@+id/toggleButton"
         android:layout_alignRight="@+id/toggleButton"
         android:text="ToggleButton"
