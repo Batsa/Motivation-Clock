@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.util.Random;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,13 +30,15 @@ public class choose_task extends AppCompatActivity {
        super.onCreate(savedInstanceState);
        setContentView(R.layout.activity_choose_task);
 
+
+
        // Write a message to the database
        FirebaseDatabase database = FirebaseDatabase.getInstance();
-       DatabaseReference taskOneReference = database.getReference("Meditate1");
-       DatabaseReference taskTwoReference = database.getReference("Meditate2");
-       DatabaseReference taskThreeReference = database.getReference("Meditate3");
-       DatabaseReference taskFourReference = database.getReference("Meditate4");
-       DatabaseReference taskFiveReference = database.getReference("Meditate5");
+       DatabaseReference taskOneReference = database.getReference("Meditate" + randInt());
+       DatabaseReference taskTwoReference = database.getReference("Meditate" + randInt());
+       DatabaseReference taskThreeReference = database.getReference("Meditate" + randInt());
+       DatabaseReference taskFourReference = database.getReference("Meditate" + randInt());
+       DatabaseReference taskFiveReference = database.getReference("Meditate" + randInt());
 
        final Button task1 = new Button(this);
        final Button task2 = new Button(this);
@@ -43,7 +47,7 @@ public class choose_task extends AppCompatActivity {
        final Button task5 = new Button(this);
 
        // Read from the database
-       taskOneReference.addValueEventListener(new ValueEventListener() {
+       taskOneReference.addListenerForSingleValueEvent(new ValueEventListener() {
                                        @Override
                                        public void onDataChange(DataSnapshot dataSnapshot) {
                                            // This method is called once with the initial value and again
@@ -66,7 +70,7 @@ public class choose_task extends AppCompatActivity {
                                        }
        });
        // Read from the database
-       taskTwoReference.addValueEventListener(new ValueEventListener() {
+       taskTwoReference.addListenerForSingleValueEvent(new ValueEventListener() {
            @Override
            public void onDataChange(DataSnapshot dataSnapshot) {
                // This method is called once with the initial value and again
@@ -90,7 +94,7 @@ public class choose_task extends AppCompatActivity {
        });
 
        // Read from the database
-       taskThreeReference.addValueEventListener(new ValueEventListener() {
+       taskThreeReference.addListenerForSingleValueEvent(new ValueEventListener() {
            @Override
            public void onDataChange(DataSnapshot dataSnapshot) {
                // This method is called once with the initial value and again
@@ -114,7 +118,7 @@ public class choose_task extends AppCompatActivity {
            }
        });
        // Read from the database
-       taskFourReference.addValueEventListener(new ValueEventListener() {
+       taskFourReference.addListenerForSingleValueEvent(new ValueEventListener() {
            @Override
            public void onDataChange(DataSnapshot dataSnapshot) {
                // This method is called once with the initial value and again
@@ -137,7 +141,7 @@ public class choose_task extends AppCompatActivity {
            }
        });
        // Read from the database
-       taskFiveReference.addValueEventListener(new ValueEventListener() {
+       taskFiveReference.addListenerForSingleValueEvent(new ValueEventListener() {
            @Override
            public void onDataChange(DataSnapshot dataSnapshot) {
                // This method is called once with the initial value and again
@@ -155,13 +159,29 @@ public class choose_task extends AppCompatActivity {
            public void onCancelled(DatabaseError error) {
                // Failed to read value
                Log.w(TAG, "Failed to read value.", error.toException());
-               Toast.makeText(choose_task.this, "Failed to read value",
-                       Toast.LENGTH_SHORT).show();
            }
        });
    }
 
-   // When called, will open the Home Page
+    @Override
+    public void onResume() {
+        super.onResume();  // Always call the superclass method first
+
+
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+
+        // call superclass to save any view hierarchy
+        super.onSaveInstanceState(outState);
+    }
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+
+    }
+
+
+    // When called, will open the Home Page
    public void openHome(View view)
    {
        Intent newIntent = new Intent(this, home.class);
@@ -219,5 +239,23 @@ public class choose_task extends AppCompatActivity {
 
        return super.onOptionsItemSelected(item);
    }
+    public static int randInt() {
 
+        // NOTE: This will (intentionally) not run as written so that folks
+        // copy-pasting have to think about how to initialize their
+        // Random instance.  Initialization of the Random instance is outside
+        // the main scope of the question, but some decent options are to have
+        // a field that is initialized once and then re-used as needed or to
+        // use ThreadLocalRandom (if using at least Java 1.7).
+        //
+        // In particular, do NOT do 'Random rand = new Random()' here or you
+        // will not get very good / not very random results.
+        Random rand = new Random();
+
+        // nextInt is normally exclusive of the top value,
+        // so add 1 to make it inclusive
+        int randomNum = rand.nextInt(5) + 1;
+
+        return randomNum;
+    }
 }

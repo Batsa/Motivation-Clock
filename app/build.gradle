@@ -20,7 +20,7 @@ android {
     buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.blogspot.pocketma.motivationclock"
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"

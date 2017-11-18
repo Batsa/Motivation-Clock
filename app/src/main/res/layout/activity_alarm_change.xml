@@ -26,6 +26,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
             android:onClick="openHome"
             android:text="@string/home" />
 
@@ -34,6 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
             android:text="@string/alarm" />
 
         <Button
@@ -41,6 +43,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
             android:onClick="openBored"
             android:text="@string/bored" />
 
@@ -49,6 +52,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
             android:onClick="openAchievements"
             android:text="@string/achieve" />
 
@@ -58,24 +62,27 @@
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="open_Add_Alarm"
-        android:text="Add Alarm"
         android:layout_alignBaseline="@+id/button6"
         android:layout_alignBottom="@+id/button6"
-        android:layout_alignRight="@+id/textView"
         android:layout_alignEnd="@+id/textView"
+        android:layout_alignRight="@+id/textView"
+        android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginEnd="16dp" />
+        android:backgroundTint="#59EB23"
+        android:onClick="open_Add_Alarm"
+        android:text="Add Alarm" />
 
     <Button
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="37dp"
-        android:text="Delete Alarm"
         android:layout_above="@+id/linearLayout"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="37dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:layout_marginEnd="24dp" />
+        android:backgroundTint="#DB0B0B"
+        android:text="Delete Alarm" />
 </android.widget.RelativeLayout>
+

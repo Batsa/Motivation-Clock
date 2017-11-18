@@ -29,6 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
             android:onClick="openHome"
             android:text="@string/home" />
 
@@ -37,6 +38,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
             android:onClick="openAlarm"
             android:text="@string/alarm" />
 
@@ -45,6 +47,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
             android:onClick="openBored"
             android:text="@string/bored" />
 
@@ -53,6 +56,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
             android:onClick="openAchievements"
             android:text="@string/achieve" />
 
@@ -62,12 +66,13 @@
         android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/cancel"
-        android:onClick="openAlarm"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_centerInParent="true"/>
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:backgroundTint="#DB0B0B"
+        android:onClick="openAlarm"
+        android:text="@string/cancel" />
 
     <!--this is the save button. if this button is pressed. it will go back to the alarm page
     and add that alarm to the alarm list-->
@@ -78,8 +83,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="@string/save"
-        />
+        android:backgroundTint="#59EB23"
+        android:text="@string/save" />
     <android.widget.LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -87,54 +92,54 @@
         android:layout_above="@+id/linearLayout2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
-            <EditText
-                android:id="@+id/txtName"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/button8"
-                android:layout_toStartOf="@+id/button8"
-                android:ems="10"
-                android:inputType="text"
-                android:hint="Enter Alarm Name" />
-
         <EditText
-            android:id="@+id/txtRepeat"
+            android:id="@+id/editText"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/txtName"
-            android:layout_alignRight="@+id/txtName"
-            android:layout_below="@+id/txtName"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/button8"
+            android:layout_toStartOf="@+id/button8"
             android:ems="10"
-            android:hint="Repeat"
-            android:inputType="text" />
+            android:inputType="textPersonName"
+            android:text="Label" />
 
-    <EditText
-        android:id="@+id/txtSnooze"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtSnooze"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Snooze" />
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/editText"
+            android:layout_alignRight="@+id/editText"
+            android:layout_below="@+id/editText"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Repeat" />
 
-    <ToggleButton
-        android:id="@+id/toggleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/txtSnooze"
-        android:layout_alignBottom="@+id/txtSnooze"
-        android:layout_alignEnd="@+id/toggleButton"
-        android:layout_alignRight="@+id/toggleButton"
-        android:text="ToggleButton"
-        android:textOff="Snooze Off"
-        android:textOn="Snooze On" />
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="28dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Snooze" />
 
-<!--this is the xml code for the alarm wheel
-draw and canvas for wheel drawables
-https://www.youtube.com/watch?v=R3AzhgzbpTc-->
+        <ToggleButton
+            android:id="@+id/toggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/editText3"
+            android:layout_alignBottom="@+id/editText3"
+            android:layout_alignEnd="@+id/toggleButton"
+            android:layout_alignRight="@+id/toggleButton"
+            android:text="ToggleButton"
+            android:textOff="Snooze Off"
+            android:textOn="Snooze On" />
+
+        <!--this is the xml code for the alarm wheel
+        draw and canvas for wheel drawables
+        https://www.youtube.com/watch?v=R3AzhgzbpTc-->
 
 
     </android.widget.LinearLayout>
@@ -147,3 +152,4 @@ https://www.youtube.com/watch?v=R3AzhgzbpTc-->
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true" />
 </android.widget.RelativeLayout>
+
