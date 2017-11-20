@@ -126,7 +126,7 @@ public class choose_task extends AppCompatActivity {
         //Toast helpMessage = Toast.makeText(getApplicationContext(), "Choose daily tasks to complete!", Toast.LENGTH_LONG);
         //helpMessage.setGravity(Gravity.CENTER, 0, 0);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setMessage("Choose the settings for you alarms!");
+        alertDialogBuilder.setMessage("Choose daily tasks to complete!");
         AlertDialog alertDialog = alertDialogBuilder.create();
 
 

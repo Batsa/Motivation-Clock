@@ -6,11 +6,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -96,7 +100,8 @@ public class home extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_name) {
+        if (id == R.id.action_name) {//for help "?" button
+            //this opens up the google terms and conditions request (on init web use), then confirms your google login, and then takes you to the website
             Intent action = new Intent(Intent.ACTION_VIEW,Uri.parse("http://pocketma.blogspot.com/p/faq.html"));
             startActivity(action);
             return true;
