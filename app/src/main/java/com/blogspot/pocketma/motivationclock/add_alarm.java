@@ -36,101 +36,72 @@ import org.w3c.dom.Text;
 public class add_alarm extends AppCompatActivity {
 
     AlarmManager alarmManager;
-    private PendingIntent pendingIntent;
-    private TimePicker alarmTimePicker;
-    private AlarmReceiver alarm;
-
-    add_alarm inst;
+    PendingIntent pendingIntent;
+    TimePicker alarmTimePicker;
+    AlarmReceiver alarm;
     Context context;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_alarm);
 
         this.context = this;
 
-        //alarm manager service
-        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-
-        //set alarm to time that you picked
+        //creating the calendar instance that we will use to get the day and time
         final Calendar calendar = Calendar.getInstance();
 
-        //initialize the time picker
+        //get the alarm manager service
+        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
         alarmTimePicker = (TimePicker) findViewById(R.id.timePicker);
 
-        //initialize the intent
-        final Intent first_intent = new Intent(this.context, AlarmReceiver.class);
+        //creates intent for the alarm to fire off
+        final Intent myIntent = new Intent(this.context, AlarmReceiver.class);
 
-        //initialize the button to save the alarm
-        Button save_alarm = (Button) findViewById(R.id.button8);//button 8 = save button
-
-        //onclick listener for the save button
-        save_alarm.setOnClickListener(new View.OnClickListener() {
+        Button startAlarm = (Button) findViewById(R.id.button8);
+        startAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //set the calendar instance with the time from the time picker
+                calendar.add(Calendar.SECOND, 3);
+
+                //sets the calendar date and hour to the where the time picker is
                 calendar.set(Calendar.HOUR_OF_DAY, alarmTimePicker.getHour());
                 calendar.set(Calendar.MINUTE, alarmTimePicker.getMinute());
 
-                //get the hour and minute from the time
-                int hour = alarmTimePicker.getHour();
-                int minute = alarmTimePicker.getMinute();
-                //set the hour and minute to string values and convert to better format for reading time
-                String hour_string = String.valueOf(hour);
-                String minute_string = String.valueOf(minute);
-
-               if (hour > 12)
-                        hour_string = String.valueOf(hour - 12);
-                if (minute < 10)
-                        minute_string = "0" + String.valueOf(minute);
-
-
-                Toast.makeText(getApplicationContext(),"Set an alarm for " + hour_string +
-                        ":" + minute_string, Toast.LENGTH_SHORT).show();
-
-
-                //put in extra string into my intent
-                //tells clock that you pressed the alarm_on button
-                first_intent.putExtra("extra", "alarm on");
-
-
-                //creates pending intent until specified time
-                pendingIntent = PendingIntent.getBroadcast(add_alarm.this, 0,
-                        first_intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-                //set the alarm manager
-                //above we need to change to keep repeating the sound bite
-                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),
+                //pending intent to hold off the intent until the specified time
+                pendingIntent = PendingIntent.getBroadcast(add_alarm.this, 0, myIntent, pendingIntent.FLAG_UPDATE_CURRENT);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                         AlarmManager.INTERVAL_DAY, pendingIntent);
 
+                //message to let you know that you set the alarm
+                int hour = alarmTimePicker.getHour();
+                int minute = alarmTimePicker.getMinute();
+                String hourString = String.valueOf(hour);
+                String minuteString = String.valueOf(minute);
+                if (hour>12)
+                    hourString = String.valueOf(hour- 12);
+                if(minute < 10)
+                    minuteString = "0" + String.valueOf(minute);
 
-
-//to cancel an alarm ->this code will actually need to go thru a pop up
-                Button alarm_off = (Button) findViewById(R.id.button7);
-                //this is temporarily set to the cancel button on the add_alarm page
-                //we will need to set this button to the Turn off alarm button on the "NEW" pop up
-                alarm_off.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-
-                        //alarmManager.cancel(pendingIntent
-                        Toast.makeText(context, "Turning off alarm", Toast.LENGTH_SHORT).show();
-
-                        alarmManager.cancel(pendingIntent);
-                        //visit part 6 of anna xu video 5:46 for if/else stop alarm
-                        //put extra intent into first_intent
-                        //tells clock that you pressed stop alarm
-                        first_intent.putExtra("extra", "alarm off");
-                        sendBroadcast(first_intent);
-                    }
-                });
-
-
+                Toast.makeText(getApplicationContext(), "Alarm set for " + hourString +":" + minuteString,
+                        Toast.LENGTH_SHORT).show();
             }
         });
 
+        Button stopAlarm = (Button) findViewById(R.id.button7);
+        stopAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                alarmManager.cancel(pendingIntent);
+                Toast.makeText(getApplicationContext(), "Alarm Cancelled",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }//end of oncreate
 
