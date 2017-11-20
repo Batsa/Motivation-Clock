@@ -1,13 +1,8 @@
 <component name="libraryTable">
   <library name="com.android.support:recyclerview-v7-26.1.0">
     <CLASSES>
-<<<<<<< HEAD
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/a69718b0f8064655f7aeb5a6372ccaac/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/a69718b0f8064655f7aeb5a6372ccaac/jars/classes.jar!/" />
-=======
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/f3dc11de89678012229a5dc1c442ecdd/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/f3dc11de89678012229a5dc1c442ecdd/jars/classes.jar!/" />
->>>>>>> 869c331e525282b27bb7de8d8b70809370d4421f
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/bb765ba2b07a93c2d4eddedef58e2504/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/bb765ba2b07a93c2d4eddedef58e2504/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

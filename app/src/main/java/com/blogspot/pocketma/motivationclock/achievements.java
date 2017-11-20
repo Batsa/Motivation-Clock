@@ -93,10 +93,11 @@ public class achievements extends AppCompatActivity {
                         if (x == null) {
                             mDatabase.child("users").child(userID).child("Achievements").child(value).child("Progress").setValue("0");
                             x = "0";
+                            return;
                         }
 
                         final int progress = Integer.parseInt(x);
-                        completionRequirement.addListenerForSingleValueEvent(new ValueEventListener() {
+                        completionRequirement.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 String y = dataSnapshot.getValue(String.class);
