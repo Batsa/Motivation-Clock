@@ -9,7 +9,9 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -33,24 +35,12 @@ public class choose_task extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_task);
-        final Button task1 = new Button(this);
-        final Button task2 = new Button(this);
-        final Button task3 = new Button(this);
-        final Button task4 = new Button(this);
-        final Button task5 = new Button(this);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
-        Toast.makeText(this, "" + currentFirebaseUser.getUid(), Toast.LENGTH_SHORT).show();
-
-
+        FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         // Write a message to the database
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference taskOneReference = database.getReference("Break" + randInt());
-        DatabaseReference taskTwoReference = database.getReference("Etiquette" + randInt());
-        DatabaseReference taskThreeReference = database.getReference("Fitness" + randInt());
-        DatabaseReference taskFourReference = database.getReference("PushUps" + randInt());
-        DatabaseReference taskFiveReference = database.getReference("Meditate" + randInt());
 
         DatabaseReference taskOneChecker = database.getReference("users/" + currentFirebaseUser.getUid() + "/task" + 1);
 
@@ -62,11 +52,12 @@ public class choose_task extends AppCompatActivity {
 
         DatabaseReference taskFiveChecker = database.getReference("users/" + currentFirebaseUser.getUid() + "/task" + 5);
 
-        generateTask(task1, "task1", taskOneReference, taskOneChecker, currentFirebaseUser.getUid(), database);
-        generateTask(task2, "task2", taskTwoReference, taskTwoChecker, currentFirebaseUser.getUid(), database);
-        generateTask(task3, "task3", taskThreeReference, taskThreeChecker, currentFirebaseUser.getUid(), database);
-        generateTask(task4, "task4", taskFourReference, taskFourChecker, currentFirebaseUser.getUid(), database);
-        generateTask(task5, "task5", taskFiveReference, taskFiveChecker, currentFirebaseUser.getUid(), database);
+
+        generateTask("task1",taskOneChecker, currentFirebaseUser.getUid(), database);
+        generateTask("task2", taskTwoChecker, currentFirebaseUser.getUid(), database);
+        generateTask("task3", taskThreeChecker, currentFirebaseUser.getUid(), database);
+        generateTask("task4", taskFourChecker, currentFirebaseUser.getUid(), database);
+        generateTask("task5", taskFiveChecker, currentFirebaseUser.getUid(), database);
 
 
     }
@@ -163,31 +154,54 @@ public class choose_task extends AppCompatActivity {
         return randomNum;
     }
 
-    public void generateTask(final Button input, final String taskNum, final DatabaseReference mReference, final DatabaseReference Checker, final String userID, final FirebaseDatabase database)
+    public void generateTask(final String taskNum, final DatabaseReference Checker, final String userID, final FirebaseDatabase database)
     {
+        final ImageButton delete = new ImageButton(this);
+        final ImageButton complete = new ImageButton(this);
+        final Button task = new Button(this);
 
+        delete.setImageResource(R.drawable.ic_cancel);
+        complete.setImageResource(R.drawable.ic_checkmark);
         // Read from the database
         Checker.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
+                // Is used to write to the user's Tasks Location with the Task Title
                 String value = dataSnapshot.getValue(String.class);
                 Log.d(TAG, "Value is: " + value);
                 if (value == null)
                 {
+                    int x = randInt();
+                    String task = "";
+                    switch (x){
+                        case(1):
+                            task = "Break" + randInt();
+                            break;
+                        case(2):
+                            task = "Etiquette" + randInt();
+                            break;
+                        case(3):
+                            task = "Fitness" + randInt();
+                            break;
+                        case(4):
+                            task = "Food" + randInt();
+                            break;
+                        case(5):
+                            task = "Meditate" + randInt();
+                            break;
+                    }
+
+                    final DatabaseReference mReference = database.getReference(task);
                     writeTask(userID, taskNum, mReference.getKey());
                     return;
                 }
+                // Is used to get the String from the Task Title and set it to text of task
                 DatabaseReference newTaskReference = database.getReference(value);
-                newTaskReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                newTaskReference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         String value2 = dataSnapshot.getValue(String.class);
-                        input.setText(value2);
-                        LinearLayout ll = (LinearLayout) findViewById(R.id.linearLayoutTasks);
-                        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                        ll.addView(input, lp);
+                        task.setText(value2);
                     }
 
                     @Override
@@ -196,6 +210,66 @@ public class choose_task extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
+                // Generates the buttons
+                int view = 0;
+                switch (taskNum)
+                {
+                    case "task1":
+                        view = R.id.horizontalTasks1;
+                        break;
+                    case "task2":
+                        view = R.id.horizontalTasks2;
+                        break;
+                    case "task3":
+                        view = R.id.horizontalTasks3;
+                        break;
+                    case "task4":
+                        view = R.id.horizontalTasks4;
+                        break;
+                    case "task5":
+                        view = R.id.horizontalTasks5;
+                        break;
+                }
+                LinearLayout hl = (LinearLayout) findViewById(view);
+                LinearLayout.LayoutParams inputParameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f);
+                LinearLayout.LayoutParams deleteParameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 2.0f);
+                LinearLayout.LayoutParams completeParameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 2.0f);
+
+                hl.addView(task, inputParameters);
+                hl.addView(complete, completeParameters);
+                hl.addView(delete, deleteParameters);
+                delete.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View view) {
+                        ViewGroup layout = (ViewGroup) delete.getParent();
+                        if (null != layout) //for safety only  as you are doing onClick
+                        {
+                            layout.removeView(delete);
+                            layout.removeView(complete);
+                            layout.removeView(task);
+                        }
+                        Checker.removeValue();
+                    }
+                });
+                complete.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View view) {
+                        ViewGroup layout = (ViewGroup) complete.getParent();
+                        if (null != layout) //for safety only  as you are doing onClick
+                        {
+                            layout.removeView(delete);
+                            layout.removeView(complete);
+                            layout.removeView(task);
+                        }
+                        Toast.makeText(choose_task.this, "Updating The Achievements Progress",
+                                Toast.LENGTH_SHORT).show();
+                        Checker.removeValue();
+
+                    }
+                });
+
             }
 
             @Override
