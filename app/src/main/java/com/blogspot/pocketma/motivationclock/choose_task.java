@@ -123,11 +123,17 @@ public class choose_task extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-        Toast helpMessage = Toast.makeText(getApplicationContext(), "Choose daily tasks to complete!", Toast.LENGTH_LONG);
-        helpMessage.setGravity(Gravity.CENTER, 0, 0);
+        //CHANGE: from toast to dialog box (TC)
+        //Toast helpMessage = Toast.makeText(getApplicationContext(), "Choose daily tasks to complete!", Toast.LENGTH_LONG);
+        //helpMessage.setGravity(Gravity.CENTER, 0, 0);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Choose the settings for you alarms!");
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
 
         if (id == R.id.action_name) {
-            helpMessage.show();
+            //helpMessage.show();
+            alertDialog.show();
             return true;
         }
 

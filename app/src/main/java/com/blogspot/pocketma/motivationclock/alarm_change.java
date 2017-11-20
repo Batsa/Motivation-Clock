@@ -10,6 +10,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+//import android.app.AlertDialog; //uses v7
+import android.content.DialogInterface;
+
 
 public class alarm_change extends AppCompatActivity {
 
@@ -65,11 +68,17 @@ public class alarm_change extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-        Toast helpMessage = Toast.makeText(getApplicationContext(),"Your Motivational Alarms!",Toast.LENGTH_LONG);
-        helpMessage.setGravity(Gravity.CENTER, 0, 0);
+        //CHANGE: from toast to dialog box (TC)
+        //Toast helpMessage = Toast.makeText(getApplicationContext(),"Your Motivational Alarms!",Toast.LENGTH_LONG);
+        //helpMessage.setGravity(Gravity.CENTER, 0, 0);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Your Motivational Alarms!");
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
 
         if (id == R.id.action_name) {
-            helpMessage.show();
+            //helpMessage.show();
+            alertDialog.show();
             return true;
         }
 

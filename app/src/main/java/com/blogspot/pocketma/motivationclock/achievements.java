@@ -248,11 +248,11 @@ public class achievements extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
+        //CHANGE: from toast to dialog box (TC)
         //Toast helpMessage = Toast.makeText(getApplicationContext(),"Complete daily tasks and get achievements!",Toast.LENGTH_LONG);
         //helpMessage.setGravity(Gravity.CENTER, 0, 0);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Complete daily tasks and get achievements!");
-
         AlertDialog alertDialog = alertDialogBuilder.create();
 
 

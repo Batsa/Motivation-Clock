@@ -27,6 +27,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.app.AlertDialog;
 
 import java.util.Calendar;
 import java.util.Random;
@@ -146,11 +147,15 @@ public class add_alarm extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-        Toast helpMessage = Toast.makeText(getApplicationContext(),"Choose the settings for you alarms!",Toast.LENGTH_LONG);
-        helpMessage.setGravity(Gravity.CENTER, 0, 0);
+        //Toast helpMessage = Toast.makeText(getApplicationContext(),"Choose the settings for you alarms!",Toast.LENGTH_LONG);
+        //helpMessage.setGravity(Gravity.CENTER, 0, 0);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Choose the settings for you alarms!");
+        AlertDialog alertDialog = alertDialogBuilder.create();
 
         if (id == R.id.action_name) {
-            helpMessage.show();
+            //helpMessage.show();
+            alertDialog.show();
             return true;
         }
 
