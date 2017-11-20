@@ -205,8 +205,7 @@ public class choose_task extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        Toast.makeText(choose_task.this, "Failed to read value Inner loop",
-                                Toast.LENGTH_SHORT).show();
+
                     }
                 });
                 // Generates the buttons
@@ -535,8 +534,6 @@ public class choose_task extends AppCompatActivity {
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
                 Log.w(TAG, "Failed to read value.", error.toException());
-                Toast.makeText(choose_task.this, "Failed to read value",
-                        Toast.LENGTH_SHORT).show();
             }
         });
 
