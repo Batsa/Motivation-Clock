@@ -52,7 +52,6 @@ public class choose_task extends AppCompatActivity {
 
         DatabaseReference taskFiveChecker = database.getReference("users/" + currentFirebaseUser.getUid() + "/task" + 5);
 
-
         generateTask("task1",taskOneChecker, currentFirebaseUser.getUid(), database);
         generateTask("task2", taskTwoChecker, currentFirebaseUser.getUid(), database);
         generateTask("task3", taskThreeChecker, currentFirebaseUser.getUid(), database);
@@ -164,7 +163,7 @@ public class choose_task extends AppCompatActivity {
     {
         final ImageButton delete = new ImageButton(this);
         final ImageButton complete = new ImageButton(this);
-        final Button task = new Button(this);
+        final Button taskButton = new Button(this);
 
         delete.setImageResource(R.drawable.ic_cancel);
         complete.setImageResource(R.drawable.ic_checkmark);
@@ -175,9 +174,10 @@ public class choose_task extends AppCompatActivity {
                 // Is used to write to the user's Tasks Location with the Task Title
                 String value = dataSnapshot.getValue(String.class);
                 Log.d(TAG, "Value is: " + value);
+                int x = randInt();
+                final String finalTask = value;
                 if (value == null)
                 {
-                    int x = randInt();
                     String task = "";
                     switch (x){
                         case(1):
@@ -190,13 +190,12 @@ public class choose_task extends AppCompatActivity {
                             task = "Fitness" + randInt();
                             break;
                         case(4):
-                            task = "Food" + randInt();
+                            task = "PushUps" + randInt();
                             break;
                         case(5):
                             task = "Meditate" + randInt();
                             break;
                     }
-
                     final DatabaseReference mReference = database.getReference(task);
                     writeTask(userID, taskNum, mReference.getKey());
                     return;
@@ -207,13 +206,12 @@ public class choose_task extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         String value2 = dataSnapshot.getValue(String.class);
-                        task.setText(value2);
+                        taskButton.setText(value2);
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        Toast.makeText(choose_task.this, "Failed to read value Inner loop",
-                                Toast.LENGTH_SHORT).show();
+
                     }
                 });
                 // Generates the buttons
@@ -241,7 +239,7 @@ public class choose_task extends AppCompatActivity {
                 LinearLayout.LayoutParams deleteParameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 2.0f);
                 LinearLayout.LayoutParams completeParameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 2.0f);
 
-                hl.addView(task, inputParameters);
+                hl.addView(taskButton, inputParameters);
                 hl.addView(complete, completeParameters);
                 hl.addView(delete, deleteParameters);
                 delete.setOnClickListener(new View.OnClickListener() {
@@ -253,7 +251,7 @@ public class choose_task extends AppCompatActivity {
                         {
                             layout.removeView(delete);
                             layout.removeView(complete);
-                            layout.removeView(task);
+                            layout.removeView(taskButton);
                         }
                         Checker.removeValue();
                     }
@@ -267,10 +265,270 @@ public class choose_task extends AppCompatActivity {
                         {
                             layout.removeView(delete);
                             layout.removeView(complete);
-                            layout.removeView(task);
+                            layout.removeView(taskButton);
                         }
-                        Toast.makeText(choose_task.this, "Updating The Achievements Progress",
-                                Toast.LENGTH_SHORT).show();
+                        switch (finalTask)
+                        {
+                            case("Break1"):
+                            case("Break2"):
+                            case("Break3"):
+                            case("Break4"):
+                            case("Break5"):
+                                DatabaseReference achievementsNameReference1 = database.getReference("users/" + userID + "/Achievements/Let the Stress Flow Away/Progress");
+                                DatabaseReference achievementsNameReference2 = database.getReference("users/" + userID + "/Achievements/Remember: Just Relax/Progress");
+                                DatabaseReference achievementsNameReference3 = database.getReference("users/" + userID + "/Achievements/Start the Good Vibes Man/Progress");
+                                achievementsNameReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        int y = Integer.parseInt(x);
+                                        y++;
+                                        mDatabase.child("users").child(userID).child("Achievements").child("Let the Stress Flow Away").child("Progress").setValue(Integer.toString(y));
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                achievementsNameReference2.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        int y = Integer.parseInt(x);
+                                        y++;
+                                        mDatabase.child("users").child(userID).child("Achievements").child("Remember: Just Relax").child("Progress").setValue(Integer.toString(y));
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                achievementsNameReference3.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        int y = Integer.parseInt(x);
+                                        y++;
+                                        mDatabase.child("users").child(userID).child("Achievements").child("Start the Good Vibes Man").child("Progress").setValue(Integer.toString(y));
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                break;
+                            case("Etiquette1"):
+                            case("Etiquette2"):
+                            case("Etiquette3"):
+                            case("Etiquette4"):
+                            case("Etiquette5"):
+                                DatabaseReference EtiquetteNameReference1 = database.getReference("users/" + userID + "/Achievements/M'Ladies and M'Dudes/Progress");
+                                DatabaseReference EtiquetteNameReference2 = database.getReference("users/" + userID + "/Achievements/RESPECT/Progress");
+                                DatabaseReference EtiquetteNameReference3 = database.getReference("users/" + userID + "/Achievements/Spread Some Luhv/Progress");
+                                EtiquetteNameReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        int y = Integer.parseInt(x);
+                                        y++;
+                                        mDatabase.child("users").child(userID).child("Achievements").child("M'Ladies and M'Dudes").child("Progress").setValue(Integer.toString(y));
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                EtiquetteNameReference2.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        int y = Integer.parseInt(x);
+                                        y++;
+                                        mDatabase.child("users").child(userID).child("Achievements").child("RESPECT").child("Progress").setValue(Integer.toString(y));
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                EtiquetteNameReference3.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        int y = Integer.parseInt(x);
+                                        y++;
+                                        mDatabase.child("users").child(userID).child("Achievements").child("Spread Some Luhv").child("Progress").setValue(Integer.toString(y));
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                break;
+
+                            case("Fitness1"):
+                            case("Fitness2"):
+                            case("Fitness3"):
+                            case("Fitness4"):
+                            case("Fitness5"):
+                                DatabaseReference fitnessNameReference1 = database.getReference("users/" + userID + "/Achievements/Running on Time/Progress");
+                                // DatabaseReference fitnessNameReference2 = database.getReference("users/" + userID + "/Achievements/Sparks from Behind/Progress");
+                                DatabaseReference fitnessNameReference3 = database.getReference("users/" + userID + "/Achievements/Endurance Machine/Progress");
+                                fitnessNameReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        int y = Integer.parseInt(x);
+                                        y++;
+                                        mDatabase.child("users").child(userID).child("Achievements").child("Running on Time").child("Progress").setValue(Integer.toString(y));
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                               /* fitnessNameReference2.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        int y = Integer.parseInt(x);
+                                        y++;
+                                        mDatabase.child("users").child(userID).child("Achievements").child("Sparks from Behind").child("Progress").setValue(Integer.toString(y));
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                }); */
+                                fitnessNameReference3.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        int y = Integer.parseInt(x);
+                                        y++;
+                                        mDatabase.child("users").child(userID).child("Achievements").child("Endurance Machine").child("Progress").setValue(Integer.toString(y));
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                break;
+                            case("PushUps1"):
+                            case("PushUps2"):
+                            case("PushUps3"):
+                            case("PushUps4"):
+                            case("PushUps5"):
+                                DatabaseReference pushUpsNameReference1 = database.getReference("users/" + userID + "/Achievements/Up & Down/Progress");
+                                DatabaseReference pushUpsNameReference2 = database.getReference("users/" + userID + "/Achievements/Biological Piston/Progress");
+                                DatabaseReference pushUpsNameReference3 = database.getReference("users/" + userID + "/Achievements/Ye Who Shifted Terra/Progress");
+                                pushUpsNameReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        int y = Integer.parseInt(x);
+                                        y++;
+                                        mDatabase.child("users").child(userID).child("Achievements").child("Up & Down").child("Progress").setValue(Integer.toString(y));
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                pushUpsNameReference2.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        int y = Integer.parseInt(x);
+                                        y++;
+                                        mDatabase.child("users").child(userID).child("Achievements").child("Biological Piston").child("Progress").setValue(Integer.toString(y));
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                pushUpsNameReference3.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        int y = Integer.parseInt(x);
+                                        y++;
+                                        mDatabase.child("users").child(userID).child("Achievements").child("Ye Who Shifted Terra").child("Progress").setValue(Integer.toString(y));
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                break;
+                            case("Meditate1"):
+                            case("Meditate2"):
+                            case("Meditate3"):
+                            case("Meditate4"):
+                            case("Meditate5"):
+                                DatabaseReference meditateNameReference1 = database.getReference("users/" + userID + "/Achievements/Iris Passing Intensifies/Progress");
+                                DatabaseReference meditateNameReference2 = database.getReference("users/" + userID + "/Achievements/Inside Road to Nirvana/Progress");
+                                DatabaseReference meditateNameReference3 = database.getReference("users/" + userID + "/Achievements/Floating to Stage 10/Progress");
+                                meditateNameReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        int y = Integer.parseInt(x);
+                                        y++;
+                                        mDatabase.child("users").child(userID).child("Achievements").child("Iris Passing Intensifies").child("Progress").setValue(Integer.toString(y));
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                meditateNameReference2.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        int y = Integer.parseInt(x);
+                                        y++;
+                                        mDatabase.child("users").child(userID).child("Achievements").child("Inside Road to Nirvana").child("Progress").setValue(Integer.toString(y));
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                meditateNameReference3.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        int y = Integer.parseInt(x);
+                                        y++;
+                                        mDatabase.child("users").child(userID).child("Achievements").child("Floating to Stage 10").child("Progress").setValue(Integer.toString(y));
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                break;
+                        }
+
+
+
                         Checker.removeValue();
 
                     }
@@ -282,8 +540,6 @@ public class choose_task extends AppCompatActivity {
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
                 Log.w(TAG, "Failed to read value.", error.toException());
-                Toast.makeText(choose_task.this, "Failed to read value",
-                        Toast.LENGTH_SHORT).show();
             }
         });
 

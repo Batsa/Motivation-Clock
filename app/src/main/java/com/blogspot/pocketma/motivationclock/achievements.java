@@ -95,10 +95,11 @@ public class achievements extends AppCompatActivity {
                         if (x == null) {
                             mDatabase.child("users").child(userID).child("Achievements").child(value).child("Progress").setValue("0");
                             x = "0";
+                            return;
                         }
 
                         final int progress = Integer.parseInt(x);
-                        completionRequirement.addListenerForSingleValueEvent(new ValueEventListener() {
+                        completionRequirement.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 String y = dataSnapshot.getValue(String.class);
@@ -193,10 +194,7 @@ public class achievements extends AppCompatActivity {
 */
             @Override
             public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException());
-                Toast.makeText(achievements.this, "Failed to read value",
-                        Toast.LENGTH_SHORT).show();
+
             }
         });
 
