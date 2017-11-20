@@ -17,6 +17,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -240,17 +242,24 @@ public class achievements extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
     // Displays pop up bubble when the help button is pressed. Change the string to change message
     // Change Toast.LENGTH_LONG to Toast.LENGTH_SHORT to lower duration of bubble on screen
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-        Toast helpMessage = Toast.makeText(getApplicationContext(),"Complete daily tasks and get achievements!",Toast.LENGTH_LONG);
-        helpMessage.setGravity(Gravity.CENTER, 0, 0);
+        //Toast helpMessage = Toast.makeText(getApplicationContext(),"Complete daily tasks and get achievements!",Toast.LENGTH_LONG);
+        //helpMessage.setGravity(Gravity.CENTER, 0, 0);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Complete daily tasks and get achievements!");
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
 
         if (id == R.id.action_name) {
-            helpMessage.show();
+            //helpMessage.show();
+            alertDialog.show();
             return true;
         }
 

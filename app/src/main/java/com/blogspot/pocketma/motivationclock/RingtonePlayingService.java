@@ -18,17 +18,13 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.Random;
 
 public class RingtonePlayingService extends Service{
 
-    MediaPlayer media_song;
-
-    private boolean isRunning;
-    private Context context;
-    MediaPlayer mMediaPlayer;
-    private int startId;
+    MediaPlayer motivatingQuote;
 
     @Nullable
     @Override
@@ -37,28 +33,11 @@ public class RingtonePlayingService extends Service{
     }
 
     public int onStartCommand(Intent intent, int flags, int startId){
-        Log.i("Local service", "Received start id " + startId + ": " + intent);
 
-        //fetch the extra string values
-        String state = intent.getExtras().getString("extra");
-        //switch statement for alarm on or alarm off
-        /*assert  state != null;
-        switch (state) {
-            case "alarm on":
-                startId = 1;
-                break;
-            case "alarm off":
-                startId = 0;
-                break;
-            default:
-                startId = 0;
-                break;
-        }*/
-
-        media_song  = MediaPlayer.create(this, R.raw.mcgregor1);
-        media_song.start();
-
-
+        Toast.makeText(this,"something should play", Toast.LENGTH_SHORT).show();
+        //create an instance of the media player
+        motivatingQuote = MediaPlayer.create(this, R.raw.do_or_do_not_there_is_no_try);
+        motivatingQuote.start();
         return START_NOT_STICKY;
     }
 }
