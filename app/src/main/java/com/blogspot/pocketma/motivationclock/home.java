@@ -97,7 +97,7 @@ public class home extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_name) {
-            Intent action = new Intent(Intent.ACTION_VIEW,Uri.parse("https://pocketma.blogspot.com"));
+            Intent action = new Intent(Intent.ACTION_VIEW,Uri.parse("http://pocketma.blogspot.com/p/faq.html"));
             startActivity(action);
             return true;
         }
