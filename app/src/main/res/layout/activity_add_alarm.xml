@@ -100,8 +100,8 @@
             android:layout_toLeftOf="@+id/button8"
             android:layout_toStartOf="@+id/button8"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Label" />
+            android:inputType="text"
+            android:hint="Label" />
 
         <EditText
             android:id="@+id/editText2"
@@ -111,8 +111,8 @@
             android:layout_alignRight="@+id/editText"
             android:layout_below="@+id/editText"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Repeat" />
+            android:inputType="text"
+            android:hint="Repeat" />
 
         <EditText
             android:id="@+id/editText3"
@@ -122,8 +122,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="28dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Snooze" />
+            android:inputType="text"
+            android:hint="Snooze" />
 
         <ToggleButton
             android:id="@+id/toggleButton"
