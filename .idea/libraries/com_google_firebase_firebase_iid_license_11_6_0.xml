@@ -1,13 +1,8 @@
 <component name="libraryTable">
   <library name="com.google.firebase:firebase-iid-license-11.6.0">
     <CLASSES>
-<<<<<<< HEAD
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-iid-license-11.6.0.aar/28f97d51e722db809bd1c8fa0284d501/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-iid-license-11.6.0.aar/28f97d51e722db809bd1c8fa0284d501/jars/classes.jar!/" />
-=======
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-iid-license-11.6.0.aar/b0e209c831e330c46ce3948b2e679fa7/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-iid-license-11.6.0.aar/b0e209c831e330c46ce3948b2e679fa7/jars/classes.jar!/" />
->>>>>>> 600844b07c0dd6d60b2fe80b78426cea85e3bdc2
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-iid-license-11.6.0.aar/9a503d316ec99c8ac8b49f359ac94e60/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-iid-license-11.6.0.aar/9a503d316ec99c8ac8b49f359ac94e60/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

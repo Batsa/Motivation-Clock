@@ -119,10 +119,10 @@ public class add_alarm extends AppCompatActivity {
                         Toast.makeText(context, "Turning off alarm", Toast.LENGTH_SHORT).show();
 
                         alarmManager.cancel(pendingIntent);
-                        //visit part 6 of annaxu video 5:46 for if/else stop alarm
+                        //visit part 6 of anna xu video 5:46 for if/else stop alarm
                         //put extra intent into first_intent
                         //tells clock that you pressed stop alarm
-                        first_intent.putExtra("extra", "alarm off")
+                        first_intent.putExtra("extra", "alarm off");
                         sendBroadcast(first_intent);
                     }
                 });
