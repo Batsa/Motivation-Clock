@@ -1,0 +1,1 @@
+1. If you go off any page that deals with the database, and then you go the the task page, then accept the task, it will crash the program(e.g. if you click on the achievement page, then the task page and click accept, it will crash the program)

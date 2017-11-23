@@ -1,13 +1,8 @@
 <component name="libraryTable">
   <library name="com.google.firebase:firebase-common-license-11.6.0">
     <CLASSES>
-<<<<<<< HEAD
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-common-license-11.6.0.aar/11cbc68ae231ea8f55a5242d44c10bdd/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-common-license-11.6.0.aar/11cbc68ae231ea8f55a5242d44c10bdd/res" />
-=======
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-common-license-11.6.0.aar/860cdcae3c04b194d74a00589958371e/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-common-license-11.6.0.aar/860cdcae3c04b194d74a00589958371e/jars/classes.jar!/" />
->>>>>>> 463144d4a1efca6763ba2a83b57d591f4b240f04
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-common-license-11.6.0.aar/51d81f8de5377824f630c17a2a1d3fd2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-common-license-11.6.0.aar/51d81f8de5377824f630c17a2a1d3fd2/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

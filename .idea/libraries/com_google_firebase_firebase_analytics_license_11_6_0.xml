@@ -1,13 +1,8 @@
 <component name="libraryTable">
   <library name="com.google.firebase:firebase-analytics-license-11.6.0">
     <CLASSES>
-<<<<<<< HEAD
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-analytics-license-11.6.0.aar/4b04b167a79d0044fe8825defd1bc89c/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-analytics-license-11.6.0.aar/4b04b167a79d0044fe8825defd1bc89c/res" />
-=======
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-analytics-license-11.6.0.aar/a0655e77beb9213e68a82df589379c50/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-analytics-license-11.6.0.aar/a0655e77beb9213e68a82df589379c50/res" />
->>>>>>> 463144d4a1efca6763ba2a83b57d591f4b240f04
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-analytics-license-11.6.0.aar/9e4d2303bba655015763b62971cd0759/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-analytics-license-11.6.0.aar/9e4d2303bba655015763b62971cd0759/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
