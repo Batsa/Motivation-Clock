@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/11-22-2017.iml" filepath="$PROJECT_DIR$/11-22-2017.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/Motivation-Clock.iml" filepath="$PROJECT_DIR$/Motivation-Clock.iml" />
+>>>>>>> 3db741b35197c9b3eb405c4cb28a5b755d1e51db
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
