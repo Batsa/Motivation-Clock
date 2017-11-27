@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
-      <module fileurl="file://$PROJECT_DIR$/Motivational_Clock.iml" filepath="$PROJECT_DIR$/Motivational_Clock.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/Motivation Clock 11-19-2017.iml" filepath="$PROJECT_DIR$/Motivation Clock 11-19-2017.iml" />
->>>>>>> 463144d4a1efca6763ba2a83b57d591f4b240f04
+      <module fileurl="file://$PROJECT_DIR$/11-22-2017.iml" filepath="$PROJECT_DIR$/11-22-2017.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

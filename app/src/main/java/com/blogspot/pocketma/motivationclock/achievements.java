@@ -45,8 +45,15 @@ public class achievements extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         for (int i = 1; i <= 19; i++) {
+            // Gets the name of the achievement, and the number needed to complete it.
+            // The name will be needed to create the button.
+            // The # needed to complete will be used to update the user's achievement directory completion #, and be compared to
+            // to determine which section will the achievement be put into.
+            // To get the description later, will need to do something along the same lines as the below, and pass it in also.
+            // Also, I may want to use the popup box that tina had
             DatabaseReference achievementReference = database.getReference("Achievements/Achievement" + i + "/Name");
             DatabaseReference achievementCompletion = database.getReference("Achievements/Achievement" + i + "/Completion");
+            // Pass in the name of the achievement, the number needed to complete it, the id of the user, and the database reference
             generateTask(achievementReference, achievementCompletion, currentFirebaseUser.getUid(), database);
         }
 
@@ -55,6 +62,7 @@ public class achievements extends AppCompatActivity {
 
     public void generateTask(final DatabaseReference Name, final DatabaseReference Completion, final String userID, final FirebaseDatabase database)
     {
+        // Will be used to output to the screen the name of the achievement
         final Button achievementButton = new Button(this);
 
 
@@ -62,14 +70,21 @@ public class achievements extends AppCompatActivity {
         Name.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // Is used to write to the user's Tasks Location with the Task Title
+                // Gets the name of the achievement
                 final String value = dataSnapshot.getValue(String.class);
                 Log.d(TAG, "Value is: " + value);
 
-                DatabaseReference userProgress = database.getReference("users/" + userID + "/Achievements/" + value + "/Progress");
+                final LinearLayout.LayoutParams parameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+                String x = value;
+                achievementButton.setText(x);
+
+                // References to the user's own Progress and the completion Requirement for the achievement.
+                // Is the completion requirement necessary I wonder? We already have the completion number that was passed in
+                final DatabaseReference userProgress = database.getReference("users/" + userID + "/Achievements/" + value + "/Progress");
                 final DatabaseReference completionRequirement = database.getReference("users/" + userID + "/Achievements/" + value + "/Completion");
 
-                // To get the amount needed to complete the task and store it in User's Completion Requirement
+                // To get the amount needed to complete the task and store it in User's Completion Requirement for that achievement
+                // We only need a listener for a single event because the completion requirement should never change/update
                 Completion.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -82,24 +97,26 @@ public class achievements extends AppCompatActivity {
 
                     }
                 });
-                final LinearLayout.LayoutParams parameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-                String x = value;
-                achievementButton.setText(x);
 
-
-
-                userProgress.addValueEventListener(new ValueEventListener() {
+                // Is used to check the User's progress.
+                // And then build the button into the corresponding layout
+                userProgress.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         String x = dataSnapshot.getValue(String.class);
+                        // Initializes the user's progress to 0 if it is the first time for the user (No previous data for progress)
                         if (x == null) {
                             mDatabase.child("users").child(userID).child("Achievements").child(value).child("Progress").setValue("0");
                             x = "0";
                             return;
                         }
 
+                        // Will be used to compare with completion later on to determine where to put the achievement
                         final int progress = Integer.parseInt(x);
-                        completionRequirement.addValueEventListener(new ValueEventListener() {
+
+                        // Gets the completion requirement from the user, and build the button depending on whether the user
+                        // completed the achievement or not
+                        completionRequirement.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 String y = dataSnapshot.getValue(String.class);
@@ -132,66 +149,7 @@ public class achievements extends AppCompatActivity {
 
 
                 }
-                /*
-                // Is used to get the String from the Task Title and set it to text of task
-                DatabaseReference newTaskReference = database.getReference(value);
-                newTaskReference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        String value2 = dataSnapshot.getValue(String.class);
-                        task.setText(value2);
-                    }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Toast.makeText(choose_task.this, "Failed to read value Inner loop",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                }); */
-                // Generates the buttons
-/*
-                LinearLayout hl = (LinearLayout) findViewById(view);
-                LinearLayout.LayoutParams inputParameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f);
-                LinearLayout.LayoutParams deleteParameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 2.0f);
-                LinearLayout.LayoutParams completeParameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 2.0f);
-
-                hl.addView(task, inputParameters);
-                hl.addView(complete, completeParameters);
-                hl.addView(delete, deleteParameters);
-                delete.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View view) {
-                        ViewGroup layout = (ViewGroup) delete.getParent();
-                        if (null != layout) //for safety only  as you are doing onClick
-                        {
-                            layout.removeView(delete);
-                            layout.removeView(complete);
-                            layout.removeView(task);
-                        }
-                        Checker.removeValue();
-                    }
-                });
-                complete.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View view) {
-                        ViewGroup layout = (ViewGroup) complete.getParent();
-                        if (null != layout) //for safety only  as you are doing onClick
-                        {
-                            layout.removeView(delete);
-                            layout.removeView(complete);
-                            layout.removeView(task);
-                        }
-                        Toast.makeText(choose_task.this, "Updating The Achievements Progress",
-                                Toast.LENGTH_SHORT).show();
-                        Checker.removeValue();
-
-                    }
-                });
-
-            }
-*/
             @Override
             public void onCancelled(DatabaseError error) {
 

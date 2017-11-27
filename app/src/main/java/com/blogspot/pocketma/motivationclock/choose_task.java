@@ -116,8 +116,6 @@ public class choose_task extends AppCompatActivity {
         return true;
     }
 
-    // Displays pop up bubble when the help button is pressed. Change the string to change message
-    // Change Toast.LENGTH_LONG to Toast.LENGTH_SHORT to lower duration of bubble on screen
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -176,6 +174,7 @@ public class choose_task extends AppCompatActivity {
                 Log.d(TAG, "Value is: " + value);
                 int x = randInt();
                 final String finalTask = value;
+                // If the user doesn't currently have a task, create one for the user and store it in the database
                 if (value == null)
                 {
                     String task = "";
@@ -200,9 +199,9 @@ public class choose_task extends AppCompatActivity {
                     writeTask(userID, taskNum, mReference.getKey());
                     return;
                 }
-                // Is used to get the String from the Task Title and set it to text of task
+                // Is used to get the String from the Task Title and set it to text of button to the screen
                 DatabaseReference newTaskReference = database.getReference(value);
-                newTaskReference.addValueEventListener(new ValueEventListener() {
+                newTaskReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         String value2 = dataSnapshot.getValue(String.class);
@@ -239,6 +238,7 @@ public class choose_task extends AppCompatActivity {
                 LinearLayout.LayoutParams deleteParameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 2.0f);
                 LinearLayout.LayoutParams completeParameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 2.0f);
 
+                hl.removeAllViews();
                 hl.addView(taskButton, inputParameters);
                 hl.addView(complete, completeParameters);
                 hl.addView(delete, deleteParameters);
@@ -256,6 +256,7 @@ public class choose_task extends AppCompatActivity {
                         Checker.removeValue();
                     }
                 });
+
                 complete.setOnClickListener(new View.OnClickListener() {
 
                     @Override
