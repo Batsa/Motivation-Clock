@@ -1,13 +1,8 @@
 <component name="libraryTable">
   <library name="com.google.firebase:firebase-database-11.6.0">
     <CLASSES>
-<<<<<<< HEAD
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-database-11.6.0.aar/8acc4a652db3cc2702bd9d761b0e2296/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-database-11.6.0.aar/8acc4a652db3cc2702bd9d761b0e2296/jars/classes.jar!/" />
-=======
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-database-11.6.0.aar/c0c5dea5dd5155f2de16aa2e9e63a37e/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-database-11.6.0.aar/c0c5dea5dd5155f2de16aa2e9e63a37e/jars/classes.jar!/" />
->>>>>>> 3db741b35197c9b3eb405c4cb28a5b755d1e51db
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-database-11.6.0.aar/8f4a576c31f520ea96a714f75ce8f507/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-database-11.6.0.aar/8f4a576c31f520ea96a714f75ce8f507/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

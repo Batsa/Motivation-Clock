@@ -1,13 +1,8 @@
 <component name="libraryTable">
   <library name="com.google.android.gms:play-services-basement-license-11.6.0">
     <CLASSES>
-<<<<<<< HEAD
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.6.0.aar/bfd08112ed845c91e19d626ce0e4f760/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.6.0.aar/bfd08112ed845c91e19d626ce0e4f760/res" />
-=======
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.6.0.aar/21b8858cfc276b0a434bbee855bd6a3d/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.6.0.aar/21b8858cfc276b0a434bbee855bd6a3d/res" />
->>>>>>> 3db741b35197c9b3eb405c4cb28a5b755d1e51db
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.6.0.aar/c22ed2ff7ae40954518299493d2e634f/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.6.0.aar/c22ed2ff7ae40954518299493d2e634f/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

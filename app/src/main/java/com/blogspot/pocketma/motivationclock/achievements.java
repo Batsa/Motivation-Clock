@@ -53,19 +53,42 @@ public class achievements extends AppCompatActivity {
             // Also, I may want to use the popup box that tina had
             DatabaseReference achievementReference = database.getReference("Achievements/Achievement" + i + "/Name");
             DatabaseReference achievementCompletion = database.getReference("Achievements/Achievement" + i + "/Completion");
+            DatabaseReference achievementDescription = database.getReference("Achievements/Achievement" + i + "/Description");
             // Pass in the name of the achievement, the number needed to complete it, the id of the user, and the database reference
-            generateTask(achievementReference, achievementCompletion, currentFirebaseUser.getUid(), database);
+            generateTask(achievementReference, achievementCompletion, achievementDescription, currentFirebaseUser.getUid(), database);
         }
 
 
     }
 
-    public void generateTask(final DatabaseReference Name, final DatabaseReference Completion, final String userID, final FirebaseDatabase database)
+    public void generateTask(final DatabaseReference Name, final DatabaseReference Completion, final DatabaseReference Description, final String userID, final FirebaseDatabase database)
     {
         // Will be used to output to the screen the name of the achievement
         final Button achievementButton = new Button(this);
 
+        // Clicking on the Achievement will open the Description of the achievement
+        achievementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Description.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        final String value = dataSnapshot.getValue(String.class);
+                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(achievements.this);
+                        alertDialogBuilder.setMessage(value);
+                        AlertDialog alertDialog = alertDialogBuilder.create();
+                        alertDialog.show();
+                    }
 
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+
+            }
+        });
         // Read from the database
         Name.addValueEventListener(new ValueEventListener() {
             @Override
@@ -204,9 +227,6 @@ public class achievements extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-        //CHANGE: from toast to dialog box (TC)
-        //Toast helpMessage = Toast.makeText(getApplicationContext(),"Complete daily tasks and get achievements!",Toast.LENGTH_LONG);
-        //helpMessage.setGravity(Gravity.CENTER, 0, 0);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Complete daily tasks and get achievements!");
         AlertDialog alertDialog = alertDialogBuilder.create();
