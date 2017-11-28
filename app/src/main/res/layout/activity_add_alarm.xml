@@ -31,7 +31,8 @@
             android:layout_weight="1"
             android:backgroundTint="@color/colorPrimary"
             android:onClick="openHome"
-            android:text="@string/home" />
+            android:text="@string/home"
+            android:textColor="#ffffff"/>
 
         <Button
             android:id="@+id/button2"
@@ -40,7 +41,8 @@
             android:layout_weight="1"
             android:backgroundTint="@color/colorPrimary"
             android:onClick="openAlarm"
-            android:text="@string/alarm" />
+            android:text="@string/alarm"
+            android:textColor="#ffffff"/>
 
         <Button
             android:id="@+id/button3"
@@ -49,7 +51,8 @@
             android:layout_weight="1"
             android:backgroundTint="@color/colorPrimary"
             android:onClick="openBored"
-            android:text="@string/bored" />
+            android:text="@string/bored"
+            android:textColor="#ffffff"/>
 
         <Button
             android:id="@+id/button4"
@@ -58,7 +61,8 @@
             android:layout_weight="1"
             android:backgroundTint="@color/colorPrimary"
             android:onClick="openAchievements"
-            android:text="@string/achieve" />
+            android:text="@string/achieve"
+            android:textColor="#ffffff"/>
 
     </android.widget.LinearLayout>
     <!--this is the cancel button. if cancel is pressed it will go back to the Alarm page.-->

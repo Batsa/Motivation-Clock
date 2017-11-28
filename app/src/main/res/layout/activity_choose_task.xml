@@ -65,7 +65,7 @@
             android:backgroundTint="@color/colorPrimary"
             android:onClick="openHome"
             android:text="@string/home"
-            android:textColor="@android:color/black" />
+            android:textColor="#ffffff" />
 
         <Button
             android:id="@+id/button2"
@@ -75,7 +75,7 @@
             android:backgroundTint="@color/colorPrimary"
             android:onClick="openAlarm"
             android:text="@string/alarm"
-            android:textColor="@android:color/black" />
+            android:textColor="#ffffff" />
 
         <Button
             android:id="@+id/button3"
@@ -84,7 +84,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/colorPrimary"
             android:text="@string/bored"
-            android:textColor="@android:color/black" />
+            android:textColor="#ffffff" />
 
         <Button
             android:id="@+id/button4"
@@ -94,7 +94,7 @@
             android:backgroundTint="@color/colorPrimary"
             android:onClick="openAchievements"
             android:text="@string/achieve"
-            android:textColor="@android:color/black" />
+            android:textColor="#ffffff" />
 
     </android.widget.LinearLayout>
 
