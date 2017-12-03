@@ -2,6 +2,7 @@
 package com.blogspot.pocketma.motivationclock;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -25,12 +26,19 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+import com.hitomi.cmlibrary.CircleMenu;
+import com.hitomi.cmlibrary.OnMenuSelectedListener;
 
 public class home extends AppCompatActivity {
     private GoogleApiClient mGoogleApiClient;
     private FirebaseDatabase mFirebaseDatabase; // Entry point for our app to access the database
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
+    // CHANGED
+    String arrayName[]={ "Home",
+            "Alarm",
+            "Bored",
+            "Achievements"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +46,40 @@ public class home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mAuth = FirebaseAuth.getInstance();
+
+        // CHANGED
+        CircleMenu circleMenu = (CircleMenu)findViewById(R.id.circle_menu);
+        circleMenu.setMainMenu(Color.parseColor("#3487a0"),R.drawable.ic_add,R.drawable.ic_remove)
+                .addSubMenu(Color.parseColor("#84abb6"),R.drawable.ic_house)
+                .addSubMenu(Color.parseColor("#84abb6"),R.drawable.ic_clock)
+                .addSubMenu(Color.parseColor("#84abb6"),R.drawable.ic_bored)
+                .addSubMenu(Color.parseColor("#84abb6"),R.drawable.ic_trophy)
+
+                .setOnMenuSelectedListener(new OnMenuSelectedListener() {
+                    @Override
+                    public void onMenuSelected(int index) {
+                        switch(index){
+                            case(0):
+                                Intent newIntent = new Intent(home.this, home.class);
+                                startActivity(newIntent);
+                                break;
+                            case(1):
+                                Intent newIntent2 = new Intent(home.this, alarm_change.class);
+                                startActivity(newIntent2);
+                                break;
+                            case(2):
+                                Intent newIntent3 = new Intent(home.this, choose_task.class);
+                                startActivity(newIntent3);
+                                break;
+                            case(3):
+                                Intent newIntent4 = new Intent(home.this, achievements.class);
+                                startActivity(newIntent4);
+                                break;
+                        }
+                        Toast.makeText(home.this,"You selected " +arrayName[index], Toast.LENGTH_SHORT).show();
+                    }
+                });
+
 
 
         Button signOutButton = (Button) findViewById(R.id.button_sign_out);

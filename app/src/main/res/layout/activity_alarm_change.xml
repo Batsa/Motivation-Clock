@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/wallpaper"
     tools:context="com.blogspot.pocketma.motivationclock.alarm_change">
 
     <TextView
@@ -26,9 +27,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
-            android:onClick="openHome"
+            android:background="@color/colorPrimary"
             android:text="@string/home"
+            android:onClick="openHome"
             android:textColor="#ffffff"/>
 
         <Button
@@ -36,7 +37,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
+            android:background="@color/colorPrimary"
+            android:onClick="openAlarm"
             android:text="@string/alarm"
             android:textColor="#ffffff"/>
 
@@ -45,7 +47,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
+            android:background="@color/colorPrimary"
             android:onClick="openBored"
             android:text="@string/bored"
             android:textColor="#ffffff"/>
@@ -55,7 +57,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
+            android:background="@color/colorPrimary"
             android:onClick="openAchievements"
             android:text="@string/achieve"
             android:textColor="#ffffff"/>

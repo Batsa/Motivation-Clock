@@ -5,6 +5,7 @@
    xmlns:tools="http://schemas.android.com/tools"
    android:layout_width="match_parent"
    android:layout_height="match_parent"
+    android:background="@drawable/wallpaper"
    tools:context="com.blogspot.pocketma.motivationclock.choose_task">
     <android.widget.LinearLayout
         android:layout_width="fill_parent"
@@ -16,6 +17,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
             android:id="@+id/horizontalTasks1">
         </android.widget.LinearLayout>
 
@@ -23,26 +27,75 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
             android:id="@+id/horizontalTasks2">
         </android.widget.LinearLayout>
         <android.widget.LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
             android:id="@+id/horizontalTasks3">
         </android.widget.LinearLayout>
         <android.widget.LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
             android:id="@+id/horizontalTasks4">
         </android.widget.LinearLayout>
         <android.widget.LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
             android:id="@+id/horizontalTasks5">
         </android.widget.LinearLayout>
+        <android.widget.LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/horizontalTasks6">
+        </android.widget.LinearLayout>
+        <android.widget.LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/horizontalTasks7">
+        </android.widget.LinearLayout>
+        <android.widget.LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/horizontalTasks8">
+        </android.widget.LinearLayout>
+        <android.widget.LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/horizontalTasks9">
+        </android.widget.LinearLayout>
+
 
 
 
@@ -53,50 +106,52 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:id="@+id/linearLayout3">
-
-
+        >
 
         <Button
             android:id="@+id/button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
-            android:onClick="openHome"
+            android:background="@color/colorPrimary"
             android:text="@string/home"
-            android:textColor="#ffffff" />
+            android:onClick="openHome"
+            android:textColor="#ffffff"/>
 
         <Button
             android:id="@+id/button2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
+            android:background="@color/colorPrimary"
             android:onClick="openAlarm"
             android:text="@string/alarm"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"/>
 
         <Button
             android:id="@+id/button3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
+            android:background="@color/colorPrimary"
+            android:onClick="openBored"
             android:text="@string/bored"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"/>
 
         <Button
             android:id="@+id/button4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
+            android:background="@color/colorPrimary"
             android:onClick="openAchievements"
             android:text="@string/achieve"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"/>
+
+
 
     </android.widget.LinearLayout>
+
 
 
 </android.widget.RelativeLayout>

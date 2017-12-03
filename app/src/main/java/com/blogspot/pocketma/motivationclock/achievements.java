@@ -44,7 +44,7 @@ public class achievements extends AppCompatActivity {
         // Write a message to the database
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        for (int i = 1; i <= 19; i++) {
+        for (int i = 1; i <= 23; i++) {
             // Gets the name of the achievement, and the number needed to complete it.
             // The name will be needed to create the button.
             // The # needed to complete will be used to update the user's achievement directory completion #, and be compared to
@@ -90,7 +90,7 @@ public class achievements extends AppCompatActivity {
             }
         });
         // Read from the database
-        Name.addValueEventListener(new ValueEventListener() {
+        Name.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Gets the name of the achievement
@@ -131,7 +131,6 @@ public class achievements extends AppCompatActivity {
                         if (x == null) {
                             mDatabase.child("users").child(userID).child("Achievements").child(value).child("Progress").setValue("0");
                             x = "0";
-                            return;
                         }
 
                         // Will be used to compare with completion later on to determine where to put the achievement

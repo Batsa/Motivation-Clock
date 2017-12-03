@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.blogspot.pocketma.motivationclock">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,40 +11,48 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".home"
+        <activity
+            android:name=".home"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".alarm_change"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".alarm_change"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".choose_task"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".choose_task"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".achievements"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".achievements"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ListTasks"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ListTasks"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".add_alarm"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".add_alarm"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity android:name=".login">
+        </activity>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="e3c6246a77799d9ed87fe713cded4450ed831fc6" />
+
+        <receiver android:name=".AlarmReceiver" />
+
+        <service android:name=".RingtonePlayingService" />
+
+        <activity android:name=".splashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="e3c6246a77799d9ed87fe713cded4450ed831fc6" />
-
-        <receiver android:name=".AlarmReceiver" />
-        <service android:name=".RingtonePlayingService"/>
-
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

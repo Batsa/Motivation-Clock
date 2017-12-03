@@ -14,65 +14,14 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         android:text="Sign Out"
-        android:textColor="#ffffff"/>
-
-    <android.widget.LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        >
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:text="@string/home"
-            android:textColor="#ffffff"/>
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:onClick="openAlarm"
-            android:text="@string/alarm"
-            android:textColor="#ffffff"/>
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:onClick="openBored"
-            android:text="@string/bored"
-            android:textColor="#ffffff"/>
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:onClick="openAchievements"
-            android:text="@string/achieve"
-            android:textColor="#ffffff"/>
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"/>
 
 
-
-    </android.widget.LinearLayout>
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/welcomeHomePage"
-        android:textColor="@android:color/holo_blue_light"
-        android:textSize="18sp" />
+    <!-- CHANGED -->
+    <com.hitomi.cmlibrary.CircleMenu
+        android:id="@+id/circle_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </android.widget.RelativeLayout>

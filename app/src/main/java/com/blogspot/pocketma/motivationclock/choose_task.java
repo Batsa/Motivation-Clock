@@ -1,6 +1,7 @@
 package com.blogspot.pocketma.motivationclock;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -52,11 +53,28 @@ public class choose_task extends AppCompatActivity {
 
         DatabaseReference taskFiveChecker = database.getReference("users/" + currentFirebaseUser.getUid() + "/task" + 5);
 
+        DatabaseReference taskSixChecker = database.getReference("users/" + currentFirebaseUser.getUid() + "/task" + 6);
+
+        DatabaseReference taskSevenChecker = database.getReference("users/" + currentFirebaseUser.getUid() + "/task" + 7);
+
+        DatabaseReference taskEightChecker = database.getReference("users/" + currentFirebaseUser.getUid() + "/task" + 8);
+
+        DatabaseReference taskNineChecker = database.getReference("users/" + currentFirebaseUser.getUid() + "/task" + 9);
+
+
+        mDatabase.child("Achievements").child("Achievement21").child("Completion").setValue("1");
+        mDatabase.child("Achievements").child("Achievement22").child("Completion").setValue("3");
+        mDatabase.child("Achievements").child("Achievement23").child("Completion").setValue("5");
         generateTask("task1",taskOneChecker, currentFirebaseUser.getUid(), database);
         generateTask("task2", taskTwoChecker, currentFirebaseUser.getUid(), database);
         generateTask("task3", taskThreeChecker, currentFirebaseUser.getUid(), database);
         generateTask("task4", taskFourChecker, currentFirebaseUser.getUid(), database);
         generateTask("task5", taskFiveChecker, currentFirebaseUser.getUid(), database);
+        generateTask("task6", taskSixChecker, currentFirebaseUser.getUid(), database);
+        generateTask("task7", taskSevenChecker, currentFirebaseUser.getUid(), database);
+        generateTask("task8", taskEightChecker, currentFirebaseUser.getUid(), database);
+        generateTask("task9", taskNineChecker, currentFirebaseUser.getUid(), database);
+
 
 
     }
@@ -120,9 +138,6 @@ public class choose_task extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-        //CHANGE: from toast to dialog box (TC)
-        //Toast helpMessage = Toast.makeText(getApplicationContext(), "Choose daily tasks to complete!", Toast.LENGTH_LONG);
-        //helpMessage.setGravity(Gravity.CENTER, 0, 0);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Choose daily tasks to complete!");
         AlertDialog alertDialog = alertDialogBuilder.create();
@@ -137,22 +152,12 @@ public class choose_task extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public static int randInt() {
-
-        // NOTE: This will (intentionally) not run as written so that folks
-        // copy-pasting have to think about how to initialize their
-        // Random instance.  Initialization of the Random instance is outside
-        // the main scope of the question, but some decent options are to have
-        // a field that is initialized once and then re-used as needed or to
-        // use ThreadLocalRandom (if using at least Java 1.7).
-        //
-        // In particular, do NOT do 'Random rand = new Random()' here or you
-        // will not get very good / not very random results.
+    public static int randInt(int size) {
         Random rand = new Random();
 
         // nextInt is normally exclusive of the top value,
         // so add 1 to make it inclusive
-        int randomNum = rand.nextInt(5) + 1;
+        int randomNum = rand.nextInt(size) + 1;
 
         return randomNum;
     }
@@ -163,6 +168,11 @@ public class choose_task extends AppCompatActivity {
         final ImageButton complete = new ImageButton(this);
         final Button taskButton = new Button(this);
 
+        delete.setBackgroundColor(Color.parseColor("#e5e5e5"));
+         complete.setBackgroundColor(Color.parseColor("#ffffff"));
+        taskButton.setBackgroundColor(Color.parseColor("#84abb6"));
+
+
         delete.setImageResource(R.drawable.ic_cancel);
         complete.setImageResource(R.drawable.ic_checkmark);
         // Read from the database
@@ -172,27 +182,35 @@ public class choose_task extends AppCompatActivity {
                 // Is used to write to the user's Tasks Location with the Task Title
                 String value = dataSnapshot.getValue(String.class);
                 Log.d(TAG, "Value is: " + value);
-                int x = randInt();
+                int numTaskThemes = 7; // Number is the amount of total implemented overarching tasks below
+                int x = randInt(numTaskThemes);
                 final String finalTask = value;
                 // If the user doesn't currently have a task, create one for the user and store it in the database
                 if (value == null)
                 {
                     String task = "";
+                    int size = 5;
                     switch (x){
                         case(1):
-                            task = "Break" + randInt();
+                            task = "Break" + randInt(size);
                             break;
                         case(2):
-                            task = "Etiquette" + randInt();
+                            task = "Etiquette" + randInt(size);
                             break;
                         case(3):
-                            task = "Fitness" + randInt();
+                            task = "Fitness" + randInt(size);
                             break;
                         case(4):
-                            task = "PushUps" + randInt();
+                            task = "PushUps" + randInt(size);
                             break;
                         case(5):
-                            task = "Meditate" + randInt();
+                            task = "Meditate" + randInt(size);
+                            break;
+                        case(6):
+                            task = "Food" + randInt(size);
+                            break;
+                        case(7):
+                            task = "Reading" + randInt(size);
                             break;
                     }
                     final DatabaseReference mReference = database.getReference(task);
@@ -232,6 +250,18 @@ public class choose_task extends AppCompatActivity {
                     case "task5":
                         view = R.id.horizontalTasks5;
                         break;
+                    case "task6":
+                        view = R.id.horizontalTasks6;
+                        break;
+                    case "task7":
+                        view = R.id.horizontalTasks7;
+                        break;
+                    case "task8":
+                        view = R.id.horizontalTasks8;
+                        break;
+                    case "task9":
+                        view = R.id.horizontalTasks9;
+                        break;
                 }
                 LinearLayout hl = (LinearLayout) findViewById(view);
                 LinearLayout.LayoutParams inputParameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f);
@@ -242,6 +272,7 @@ public class choose_task extends AppCompatActivity {
                 hl.addView(taskButton, inputParameters);
                 hl.addView(complete, completeParameters);
                 hl.addView(delete, deleteParameters);
+
                 delete.setOnClickListener(new View.OnClickListener() {
 
                     @Override
@@ -282,9 +313,13 @@ public class choose_task extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
-                                        int y = Integer.parseInt(x);
-                                        y++;
-                                        mDatabase.child("users").child(userID).child("Achievements").child("Let the Stress Flow Away").child("Progress").setValue(Integer.toString(y));
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Let the Stress Flow Away").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Let the Stress Flow Away").child("Progress").setValue(Integer.toString(y));
+                                        }
                                     }
 
                                     @Override
@@ -296,9 +331,14 @@ public class choose_task extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
-                                        int y = Integer.parseInt(x);
-                                        y++;
-                                        mDatabase.child("users").child(userID).child("Achievements").child("Remember: Just Relax").child("Progress").setValue(Integer.toString(y));
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Remember: Just Relax").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Remember: Just Relax").child("Progress").setValue(Integer.toString(y));
+
+                                        }
                                     }
 
                                     @Override
@@ -310,9 +350,14 @@ public class choose_task extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
-                                        int y = Integer.parseInt(x);
-                                        y++;
-                                        mDatabase.child("users").child(userID).child("Achievements").child("Start the Good Vibes Man").child("Progress").setValue(Integer.toString(y));
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Start the Good Vibes Man").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Start the Good Vibes Man").child("Progress").setValue(Integer.toString(y));
+
+                                        }
                                     }
 
                                     @Override
@@ -333,9 +378,13 @@ public class choose_task extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
-                                        int y = Integer.parseInt(x);
-                                        y++;
-                                        mDatabase.child("users").child(userID).child("Achievements").child("M'Ladies and M'Dudes").child("Progress").setValue(Integer.toString(y));
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("M'Ladies and M'Dudes").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("M'Ladies and M'Dudes").child("Progress").setValue(Integer.toString(y));
+                                        }
                                     }
 
                                     @Override
@@ -347,9 +396,13 @@ public class choose_task extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
-                                        int y = Integer.parseInt(x);
-                                        y++;
-                                        mDatabase.child("users").child(userID).child("Achievements").child("RESPECT").child("Progress").setValue(Integer.toString(y));
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("RESPECT").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("RESPECT").child("Progress").setValue(Integer.toString(y));
+                                        }
                                     }
 
                                     @Override
@@ -361,9 +414,13 @@ public class choose_task extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
-                                        int y = Integer.parseInt(x);
-                                        y++;
-                                        mDatabase.child("users").child(userID).child("Achievements").child("Spread Some Luhv").child("Progress").setValue(Integer.toString(y));
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Spread Some Luhv").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Spread Some Luhv").child("Progress").setValue(Integer.toString(y));
+                                        }
                                     }
 
                                     @Override
@@ -379,15 +436,19 @@ public class choose_task extends AppCompatActivity {
                             case("Fitness4"):
                             case("Fitness5"):
                                 DatabaseReference fitnessNameReference1 = database.getReference("users/" + userID + "/Achievements/Running on Time/Progress");
-                                // DatabaseReference fitnessNameReference2 = database.getReference("users/" + userID + "/Achievements/Sparks from Behind/Progress");
+                                DatabaseReference fitnessNameReference2 = database.getReference("users/" + userID + "/Achievements/Sparks From Behind/Progress");
                                 DatabaseReference fitnessNameReference3 = database.getReference("users/" + userID + "/Achievements/Endurance Machine/Progress");
                                 fitnessNameReference1.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
-                                        int y = Integer.parseInt(x);
-                                        y++;
-                                        mDatabase.child("users").child(userID).child("Achievements").child("Running on Time").child("Progress").setValue(Integer.toString(y));
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Running on Time").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Running on Time").child("Progress").setValue(Integer.toString(y));
+                                        }
                                     }
 
                                     @Override
@@ -395,27 +456,35 @@ public class choose_task extends AppCompatActivity {
 
                                     }
                                 });
-                               /* fitnessNameReference2.addListenerForSingleValueEvent(new ValueEventListener() {
+                                fitnessNameReference2.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
-                                        int y = Integer.parseInt(x);
-                                        y++;
-                                        mDatabase.child("users").child(userID).child("Achievements").child("Sparks from Behind").child("Progress").setValue(Integer.toString(y));
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Sparks From Behind").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Sparks From Behind").child("Progress").setValue(Integer.toString(y));
+                                        }
                                     }
 
                                     @Override
                                     public void onCancelled(DatabaseError databaseError) {
 
                                     }
-                                }); */
+                                });
                                 fitnessNameReference3.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
-                                        int y = Integer.parseInt(x);
-                                        y++;
-                                        mDatabase.child("users").child(userID).child("Achievements").child("Endurance Machine").child("Progress").setValue(Integer.toString(y));
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Endurance Machine").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Endurance Machine").child("Progress").setValue(Integer.toString(y));
+                                        }
                                     }
 
                                     @Override
@@ -436,9 +505,13 @@ public class choose_task extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
-                                        int y = Integer.parseInt(x);
-                                        y++;
-                                        mDatabase.child("users").child(userID).child("Achievements").child("Up & Down").child("Progress").setValue(Integer.toString(y));
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Up & Down").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Up & Down").child("Progress").setValue(Integer.toString(y));
+                                        }
                                     }
 
                                     @Override
@@ -450,9 +523,13 @@ public class choose_task extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
-                                        int y = Integer.parseInt(x);
-                                        y++;
-                                        mDatabase.child("users").child(userID).child("Achievements").child("Biological Piston").child("Progress").setValue(Integer.toString(y));
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Biological Piston").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Biological Piston").child("Progress").setValue(Integer.toString(y));
+                                        }
                                     }
 
                                     @Override
@@ -464,9 +541,13 @@ public class choose_task extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
-                                        int y = Integer.parseInt(x);
-                                        y++;
-                                        mDatabase.child("users").child(userID).child("Achievements").child("Ye Who Shifted Terra").child("Progress").setValue(Integer.toString(y));
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Ye Who Shifted Terra").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Ye Who Shifted Terra").child("Progress").setValue(Integer.toString(y));
+                                        }
                                     }
 
                                     @Override
@@ -487,9 +568,13 @@ public class choose_task extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
-                                        int y = Integer.parseInt(x);
-                                        y++;
-                                        mDatabase.child("users").child(userID).child("Achievements").child("Iris Passing Intensifies").child("Progress").setValue(Integer.toString(y));
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Iris Passing Intensifies").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Iris Passing Intensifies").child("Progress").setValue(Integer.toString(y));
+                                        }
                                     }
 
                                     @Override
@@ -501,9 +586,13 @@ public class choose_task extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
-                                        int y = Integer.parseInt(x);
-                                        y++;
-                                        mDatabase.child("users").child(userID).child("Achievements").child("Inside Road to Nirvana").child("Progress").setValue(Integer.toString(y));
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Inside Road to Nirvana").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Inside Road to Nirvana").child("Progress").setValue(Integer.toString(y));
+                                        }
                                     }
 
                                     @Override
@@ -515,9 +604,139 @@ public class choose_task extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
-                                        int y = Integer.parseInt(x);
-                                        y++;
-                                        mDatabase.child("users").child(userID).child("Achievements").child("Floating to Stage 10").child("Progress").setValue(Integer.toString(y));
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Floating to Stage 10").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Floating to Stage 10").child("Progress").setValue(Integer.toString(y));
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                break;
+                            case("Food1"):
+                            case("Food2"):
+                            case("Food3"):
+                            case("Food4"):
+                            case("Food5"):
+                                DatabaseReference foodNameReference1 = database.getReference("users/" + userID + "/Achievements/Time for Healthiness/Progress");
+                                DatabaseReference foodNameReference2 = database.getReference("users/" + userID + "/Achievements/Organic Regeration/Progress");
+                                DatabaseReference foodNameReference3 = database.getReference("users/" + userID + "/Achievements/Grams for the 'Gram/Progress");
+                                foodNameReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Time for Healthiness").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Time for Healthiness").child("Progress").setValue(Integer.toString(y));
+                                        }
+                                        }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                foodNameReference2.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Organic Regeration").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Organic Regeration").child("Progress").setValue(Integer.toString(y));
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                foodNameReference3.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Grams for the 'Gram").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Grams for the 'Gram").child("Progress").setValue(Integer.toString(y));
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                break;
+                            case("Reading1"):
+                            case("Reading2"):
+                            case("Reading3"):
+                            case("Reading4"):
+                            case("Reading5"):
+                                DatabaseReference readingReference1 = database.getReference("users/" + userID + "/Achievements/Kids These Days/Progress");
+                                DatabaseReference readingReference2 = database.getReference("users/" + userID + "/Achievements/Scholar or Sentences/Progress");
+                                DatabaseReference readingReference3 = database.getReference("users/" + userID + "/Achievements/Brain Gainz/Progress");
+                                readingReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Kids These Days").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Kids These Days").child("Progress").setValue(Integer.toString(y));
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                readingReference2.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Scholar or Sentences").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Scholar or Sentences").child("Progress").setValue(Integer.toString(y));
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                readingReference3.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String x = dataSnapshot.getValue(String.class);
+                                        if (x == null)
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Brain Gainz").child("Progress").setValue("1");
+                                        else {
+                                            int y = Integer.parseInt(x);
+                                            y++;
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Brain Gainz").child("Progress").setValue(Integer.toString(y));
+                                        }
                                     }
 
                                     @Override
@@ -527,6 +746,9 @@ public class choose_task extends AppCompatActivity {
                                 });
                                 break;
                         }
+
+
+
 
 
 
