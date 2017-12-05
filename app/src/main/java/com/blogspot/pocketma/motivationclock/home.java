@@ -63,16 +63,49 @@ public class home extends AppCompatActivity {
                             case(0):
                                 break;
                             case(1):
-                                Intent newIntent2 = new Intent(home.this, alarm_change.class);
-                                startActivity(newIntent2);
+                                Thread timerThread = new Thread(){
+                                    public void run(){
+                                        try{
+                                            sleep(1400);
+                                        }catch(InterruptedException e){
+                                            e.printStackTrace();
+                                        }finally{
+                                            Intent intent = new Intent(home.this,alarm_change.class);
+                                            startActivity(intent);
+                                        }
+                                    }
+                                };
+                                timerThread.start();
                                 break;
                             case(2):
-                                Intent newIntent3 = new Intent(home.this, choose_task.class);
-                                startActivity(newIntent3);
+                                Thread timerThread2 = new Thread(){
+                                    public void run(){
+                                        try{
+                                            sleep(1400);
+                                        }catch(InterruptedException e){
+                                            e.printStackTrace();
+                                        }finally{
+                                            Intent intent = new Intent(home.this,choose_task.class);
+                                            startActivity(intent);
+                                        }
+                                    }
+                                };
+                                timerThread2.start();
                                 break;
                             case(3):
-                                Intent newIntent4 = new Intent(home.this, achievements.class);
-                                startActivity(newIntent4);
+                                Thread timerThread3 = new Thread(){
+                                    public void run(){
+                                        try{
+                                            sleep(1400);
+                                        }catch(InterruptedException e){
+                                            e.printStackTrace();
+                                        }finally{
+                                            Intent intent = new Intent(home.this,achievements.class);
+                                            startActivity(intent);
+                                        }
+                                    }
+                                };
+                                timerThread3.start();
                                 break;
                         }
                         Toast.makeText(home.this,"You selected " +arrayName[index], Toast.LENGTH_SHORT).show();

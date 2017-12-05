@@ -38,7 +38,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/colorPrimary"
-            android:onClick="openAlarm"
             android:text="@string/alarm"
             android:textColor="#ffffff"/>
 
