@@ -498,7 +498,7 @@ public class choose_task extends AppCompatActivity {
                             case("PushUps3"):
                             case("PushUps4"):
                             case("PushUps5"):
-                                DatabaseReference pushUpsNameReference1 = database.getReference("users/" + userID + "/Achievements/Up & Down/Progress");
+                                DatabaseReference pushUpsNameReference1 = database.getReference("users/" + userID + "/Achievements/Up and Down/Progress");
                                 DatabaseReference pushUpsNameReference2 = database.getReference("users/" + userID + "/Achievements/Biological Piston/Progress");
                                 DatabaseReference pushUpsNameReference3 = database.getReference("users/" + userID + "/Achievements/Ye Who Shifted Terra/Progress");
                                 pushUpsNameReference1.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -506,11 +506,11 @@ public class choose_task extends AppCompatActivity {
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
                                         if (x == null)
-                                            mDatabase.child("users").child(userID).child("Achievements").child("Up & Down").child("Progress").setValue("1");
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Up and Down").child("Progress").setValue("1");
                                         else {
                                             int y = Integer.parseInt(x);
                                             y++;
-                                            mDatabase.child("users").child(userID).child("Achievements").child("Up & Down").child("Progress").setValue(Integer.toString(y));
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Up and Down").child("Progress").setValue(Integer.toString(y));
                                         }
                                     }
 
@@ -563,7 +563,7 @@ public class choose_task extends AppCompatActivity {
                             case("Meditate5"):
                                 DatabaseReference meditateNameReference1 = database.getReference("users/" + userID + "/Achievements/Iris Passing Intensifies/Progress");
                                 DatabaseReference meditateNameReference2 = database.getReference("users/" + userID + "/Achievements/Inside Road to Nirvana/Progress");
-                                DatabaseReference meditateNameReference3 = database.getReference("users/" + userID + "/Achievements/Floating to Stage 10/Progress");
+                                DatabaseReference meditateNameReference3 = database.getReference("users/" + userID + "/Achievements/Floating to Stage/Progress");
                                 meditateNameReference1.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -605,11 +605,11 @@ public class choose_task extends AppCompatActivity {
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
                                         if (x == null)
-                                            mDatabase.child("users").child(userID).child("Achievements").child("Floating to Stage 10").child("Progress").setValue("1");
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Floating to Stage").child("Progress").setValue("1");
                                         else {
                                             int y = Integer.parseInt(x);
                                             y++;
-                                            mDatabase.child("users").child(userID).child("Achievements").child("Floating to Stage 10").child("Progress").setValue(Integer.toString(y));
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Floating to Stage").child("Progress").setValue(Integer.toString(y));
                                         }
                                     }
 
@@ -625,7 +625,7 @@ public class choose_task extends AppCompatActivity {
                             case("Food4"):
                             case("Food5"):
                                 DatabaseReference foodNameReference1 = database.getReference("users/" + userID + "/Achievements/Time for Healthiness/Progress");
-                                DatabaseReference foodNameReference2 = database.getReference("users/" + userID + "/Achievements/Organic Regeration/Progress");
+                                DatabaseReference foodNameReference2 = database.getReference("users/" + userID + "/Achievements/Organic Regeneration/Progress");
                                 DatabaseReference foodNameReference3 = database.getReference("users/" + userID + "/Achievements/Grams for the 'Gram/Progress");
                                 foodNameReference1.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
@@ -650,11 +650,11 @@ public class choose_task extends AppCompatActivity {
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
                                         if (x == null)
-                                            mDatabase.child("users").child(userID).child("Achievements").child("Organic Regeration").child("Progress").setValue("1");
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Organic Regeneration").child("Progress").setValue("1");
                                         else {
                                             int y = Integer.parseInt(x);
                                             y++;
-                                            mDatabase.child("users").child(userID).child("Achievements").child("Organic Regeration").child("Progress").setValue(Integer.toString(y));
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Organic Regeneration").child("Progress").setValue(Integer.toString(y));
                                         }
                                     }
 
@@ -688,8 +688,8 @@ public class choose_task extends AppCompatActivity {
                             case("Reading4"):
                             case("Reading5"):
                                 DatabaseReference readingReference1 = database.getReference("users/" + userID + "/Achievements/Kids These Days/Progress");
-                                DatabaseReference readingReference2 = database.getReference("users/" + userID + "/Achievements/Scholar or Sentences/Progress");
-                                DatabaseReference readingReference3 = database.getReference("users/" + userID + "/Achievements/Brain Gainz/Progress");
+                                DatabaseReference readingReference2 = database.getReference("users/" + userID + "/Achievements/Scholar of Sentences/Progress");
+                                DatabaseReference readingReference3 = database.getReference("users/" + userID + "/Achievements/Brain Gains/Progress");
                                 readingReference1.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -713,11 +713,11 @@ public class choose_task extends AppCompatActivity {
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
                                         if (x == null)
-                                            mDatabase.child("users").child(userID).child("Achievements").child("Scholar or Sentences").child("Progress").setValue("1");
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Scholar of Sentences").child("Progress").setValue("1");
                                         else {
                                             int y = Integer.parseInt(x);
                                             y++;
-                                            mDatabase.child("users").child(userID).child("Achievements").child("Scholar or Sentences").child("Progress").setValue(Integer.toString(y));
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Scholar of Sentences").child("Progress").setValue(Integer.toString(y));
                                         }
                                     }
 
@@ -731,11 +731,11 @@ public class choose_task extends AppCompatActivity {
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String x = dataSnapshot.getValue(String.class);
                                         if (x == null)
-                                            mDatabase.child("users").child(userID).child("Achievements").child("Brain Gainz").child("Progress").setValue("1");
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Brain Gains").child("Progress").setValue("1");
                                         else {
                                             int y = Integer.parseInt(x);
                                             y++;
-                                            mDatabase.child("users").child(userID).child("Achievements").child("Brain Gainz").child("Progress").setValue(Integer.toString(y));
+                                            mDatabase.child("users").child(userID).child("Achievements").child("Brain Gains").child("Progress").setValue(Integer.toString(y));
                                         }
                                     }
 

@@ -29,6 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.hitomi.cmlibrary.CircleMenu;
 import com.hitomi.cmlibrary.OnMenuSelectedListener;
 
+
 public class home extends AppCompatActivity {
     private GoogleApiClient mGoogleApiClient;
     private FirebaseDatabase mFirebaseDatabase; // Entry point for our app to access the database
@@ -60,8 +61,6 @@ public class home extends AppCompatActivity {
                     public void onMenuSelected(int index) {
                         switch(index){
                             case(0):
-                                Intent newIntent = new Intent(home.this, home.class);
-                                startActivity(newIntent);
                                 break;
                             case(1):
                                 Intent newIntent2 = new Intent(home.this, alarm_change.class);

@@ -2,6 +2,7 @@ package com.blogspot.pocketma.motivationclock;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.LinkAddress;
 import android.net.Uri;
 import android.provider.ContactsContract;
@@ -27,6 +28,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.lang.reflect.Field;
 
 public class achievements extends AppCompatActivity {
     private static final String TAG = "Choose Task";
@@ -64,8 +67,8 @@ public class achievements extends AppCompatActivity {
     public void generateTask(final DatabaseReference Name, final DatabaseReference Completion, final DatabaseReference Description, final String userID, final FirebaseDatabase database)
     {
         // Will be used to output to the screen the name of the achievement
-        final Button achievementButton = new Button(this);
-
+        final ImageButton achievementButton = new ImageButton(this);
+        achievementButton.setImageAlpha(400);
         // Clicking on the Achievement will open the Description of the achievement
         achievementButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,8 +101,9 @@ public class achievements extends AppCompatActivity {
                 Log.d(TAG, "Value is: " + value);
 
                 final LinearLayout.LayoutParams parameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-                String x = value;
-                achievementButton.setText(x);
+                parameters.setMargins(50,10,10,1);
+                // String x = value;
+//                achievementButton.setText(x);
 
                 // References to the user's own Progress and the completion Requirement for the achievement.
                 // Is the completion requirement necessary I wonder? We already have the completion number that was passed in
@@ -133,6 +137,8 @@ public class achievements extends AppCompatActivity {
                             x = "0";
                         }
 
+
+                        // achievementButton.setBackgroundColor(Color.TRANSPARENT);
                         // Will be used to compare with completion later on to determine where to put the achievement
                         final int progress = Integer.parseInt(x);
 
@@ -143,6 +149,15 @@ public class achievements extends AppCompatActivity {
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 String y = dataSnapshot.getValue(String.class);
                                 final int completion = Integer.parseInt(y);
+                                int progressParameter = 0;
+                                if (progress > completion)
+                                    progressParameter = completion;
+                                else
+                                    progressParameter = progress;
+                                String words = value.replaceAll("[^a-zA-Z ]", "").toLowerCase();
+                                words = words.replaceAll("\\s+","_");
+                                int resId = getResources().getIdentifier(words + "_" + progressParameter + "_" + completion, "drawable", getPackageName());
+                                achievementButton.setBackgroundResource(resId);
                                 if (progress >= completion)
                                 {
                                     LinearLayout listOfCompleted = (LinearLayout) findViewById(R.id.completed);
@@ -150,8 +165,8 @@ public class achievements extends AppCompatActivity {
                                 }
                                 else
                                 {
-                                    LinearLayout listOfCompleted = (LinearLayout) findViewById(R.id.notCompleted);
-                                    listOfCompleted.addView(achievementButton,parameters);
+                                    LinearLayout listOfNotCompleted = (LinearLayout) findViewById(R.id.notCompleted);
+                                    listOfNotCompleted.addView(achievementButton,parameters);
                                 }
                             }
 
