@@ -1,5 +1,7 @@
 package com.blogspot.pocketma.motivationclock;
 
+import android.annotation.TargetApi;
+import android.app.NotificationChannel;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,14 +20,17 @@ import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.Toast;
 
 import java.util.Random;
 
 public class RingtonePlayingService extends Service{
+    private NotificationHelper mNotificationHelper;
 
     MediaPlayer motivatingQuote;
+
 
     @Nullable
     @Override
@@ -33,13 +38,18 @@ public class RingtonePlayingService extends Service{
         return null;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public int onStartCommand(Intent intent, int flags, int startId){
 
         //Toast.makeText(this,"something should play", Toast.LENGTH_SHORT).show();
         //create an instance of the media player
-
         Bundle ringtonePlayerData = intent.getExtras();
         int ringtonePlayerNumber = ringtonePlayerData.getInt("alarmClipNumber");
+
+
+        mNotificationHelper = new NotificationHelper(this);
+
+
         switch (ringtonePlayerNumber){
             case 1:
                 motivatingQuote = MediaPlayer.create(this, R.raw.create_the_time_and_sich_to_do_stuff);
@@ -123,6 +133,36 @@ public class RingtonePlayingService extends Service{
                 break;
         }
 
+
+        //notification manager
+        NotificationManager notifyManager = (NotificationManager)
+                getSystemService(NOTIFICATION_SERVICE);
+        //set up an intent for notification
+        Intent intentMainActivity = new Intent(this.getApplicationContext(), alarmOne.class);
+        //setting pending intent to cancel alarm. waits until alarm goes off
+        PendingIntent pendingIntentMainActivity = PendingIntent.getActivity(this, 0, intentMainActivity, 0);
+
+       /* //set up notification parameters
+        Notification notificationPopUp = new Notification.Builder(this)
+                .setContentTitle("YOU NEED TO WAKE UP")
+                .setSmallIcon(R.drawable.ic_bored)
+                .setContentText("CLICK DIZ TO GO AWAY")
+                .setContentIntent(pendingIntentMainActivity)
+                .setAutoCancel(true)
+                .setChannelId(String.valueOf(0))
+                .build();
+        notifyManager.notify(0, notificationPopUp);*/
+
+
+       sendOnChannel1("YOU need to wake up", "Click here");
+
         return START_NOT_STICKY;
+    }
+
+
+
+    public void sendOnChannel1(String title, String message){
+        NotificationCompat.Builder nb = mNotificationHelper.getChannel1Notification(title, message);
+        mNotificationHelper.getManager().notify(1, nb.build());
     }
 }
