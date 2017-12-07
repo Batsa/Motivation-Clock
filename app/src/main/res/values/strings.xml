@@ -15,6 +15,11 @@
     <string name="this_is_the_achievements_page">This is the Achievements Page</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="title_activity_alarm_one">alarmOne</string>
+    <string name="title_activity_alarm_two">alarmTwo</string>
+    <string name="title_activity_alarm_three">alarmThree</string>
+    <string name="title_activity_alarm_four">alarmFour</string>
+    <string name="title_activity_alarm_five">alarmFive</string>
 
 
 </resources>

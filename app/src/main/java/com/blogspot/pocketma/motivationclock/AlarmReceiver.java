@@ -3,6 +3,7 @@ package com.blogspot.pocketma.motivationclock;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -18,6 +19,7 @@ import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.widget.Toast;
 
+
 /**
  * Created by pillow's zenbook on 11/19/2017.
  */ //needs to be implemented
@@ -25,10 +27,15 @@ import android.widget.Toast;
 public class AlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        Toast.makeText(context,"Alarm is received", Toast.LENGTH_SHORT).show();
-        Intent serviceIntent = new Intent(context, RingtonePlayingService.class);
-        context.startService(serviceIntent);
 
+        //Toast.makeText(context,"Alarm is received", Toast.LENGTH_SHORT).show();
+        Bundle alarmRingtoneData = intent.getExtras();
+        int alarmRingtoneNumber = alarmRingtoneData.getInt("alarmClipNumber");
+
+        Intent serviceIntent = new Intent(context, RingtonePlayingService.class);
+        serviceIntent.putExtra("alarmClipNumber", alarmRingtoneNumber);
+
+        context.startService(serviceIntent);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.blogspot.pocketma.motivationclock;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -9,18 +10,55 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 //import android.app.AlertDialog; //uses v7
 import android.content.DialogInterface;
 
 
 public class alarm_change extends AppCompatActivity {
-
+    alarm_change instance;
+    Bundle alarmTimeData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_change);
+        alarmTimeData = getIntent().getExtras();
+        if (alarmTimeData == null)
+            return;
+        String alarmTimeString = alarmTimeData.getString("alarmOneTime");
+        Button alarmOneButton = findViewById(R.id.alarmOneButton);
+        alarmOneButton.setText(alarmTimeString);
     }
+
+
+    //opens the first alarm clock page
+    public void openAlarmOne(View view){
+        Intent alarmOneIntent = new Intent(this, alarmOne.class);
+        startActivity(alarmOneIntent);
+    }
+
+    public void openAlarmTwo(View view){
+        Intent alarmTwoIntent = new Intent(this, alarmTwo.class);
+        startActivity(alarmTwoIntent);
+    }
+
+    public void openAlarmThree(View view){
+        Intent alarmThreeIntent = new Intent(this, alarmThree.class);
+        startActivity(alarmThreeIntent);
+    }
+
+    public void openAlarmFour(View view){
+        Intent alarmFourIntent = new Intent(this, alarmFour.class);
+        startActivity(alarmFourIntent);
+    }
+
+    public void openAlarmFive(View view){
+        Intent alarmFiveIntent = new Intent(this, alarmFive.class);
+        startActivity(alarmFiveIntent);
+    }
+
+
     // When called, will open the Home Page
     public void openHome(View view)
     {
@@ -46,12 +84,6 @@ public class alarm_change extends AppCompatActivity {
     public void openAchievements(View view)
     {
         Intent newIntent = new Intent(this, achievements.class);
-        startActivity(newIntent);
-    }
-
-    // When Called, will open the Add Alarm Page
-    public void open_Add_Alarm(View view) {
-        Intent newIntent = new Intent(this, add_alarm.class);
         startActivity(newIntent);
     }
 

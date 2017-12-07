@@ -35,8 +35,7 @@
             android:name=".add_alarm"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
-        <activity android:name=".login">
-        </activity>
+        <activity android:name=".login" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
@@ -53,6 +52,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".alarmOne"
+            android:label="@string/title_activity_alarm_one"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".alarmTwo"
+            android:label="@string/title_activity_alarm_two"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".alarmThree"
+            android:label="@string/title_activity_alarm_three"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".alarmFour"
+            android:label="@string/title_activity_alarm_four"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".alarmFive"
+            android:label="@string/title_activity_alarm_five"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

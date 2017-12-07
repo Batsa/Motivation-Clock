@@ -4,18 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wallpaper"
     tools:context="com.blogspot.pocketma.motivationclock.alarm_change">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="This is the alarm page!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/textView" />
     <android.widget.LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -27,9 +17,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:text="@string/home"
+            android:backgroundTint="@color/colorPrimary"
             android:onClick="openHome"
+            android:text="@string/home"
             android:textColor="#ffffff"/>
 
         <Button
@@ -37,7 +27,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:backgroundTint="@color/colorPrimary"
             android:text="@string/alarm"
             android:textColor="#ffffff"/>
 
@@ -46,7 +36,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:backgroundTint="@color/colorPrimary"
             android:onClick="openBored"
             android:text="@string/bored"
             android:textColor="#ffffff"/>
@@ -56,7 +46,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:backgroundTint="@color/colorPrimary"
             android:onClick="openAchievements"
             android:text="@string/achieve"
             android:textColor="#ffffff"/>
@@ -64,30 +54,58 @@
     </android.widget.LinearLayout>
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/alarmOneButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button6"
-        android:layout_alignBottom="@+id/button6"
-        android:layout_alignEnd="@+id/textView"
-        android:layout_alignRight="@+id/textView"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:backgroundTint="#59EB23"
-        android:onClick="open_Add_Alarm"
-        android:text="Add Alarm" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="28dp"
+        android:onClick="openAlarmOne"
+        android:text="Alarm One" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/alarmTwoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/linearLayout"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="37dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:backgroundTint="#DB0B0B"
-        android:text="Delete Alarm" />
-</android.widget.RelativeLayout>
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/alarmOneButton"
+        android:layout_marginTop="12dp"
+        android:onClick="openAlarmTwo"
+        android:text="Alarm Two" />
 
+    <Button
+        android:id="@+id/alarmThreeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/alarmTwoButton"
+        android:layout_marginTop="17dp"
+        android:onClick="openAlarmThree"
+        android:text="AlarmThree" />
+
+    <Button
+        android:id="@+id/alarmFourButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/alarmThreeButton"
+        android:layout_below="@+id/alarmThreeButton"
+        android:layout_marginTop="26dp"
+        android:onClick="openAlarmFour"
+        android:text="Alarm Four" />
+
+    <Button
+        android:id="@+id/alarmFiveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/alarmFourButton"
+        android:layout_below="@+id/alarmFourButton"
+        android:layout_marginTop="19dp"
+        android:onClick="openAlarmFive"
+        android:text="Alarm Five" />
+
+</android.widget.RelativeLayout>
