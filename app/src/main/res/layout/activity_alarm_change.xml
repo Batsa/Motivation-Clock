@@ -4,22 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/wallpaper"
     tools:context="com.blogspot.pocketma.motivationclock.alarm_change">
 
     <android.widget.LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:id="@+id/linearLayout">
-
+        >
         <Button
             android:id="@+id/button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
-            android:onClick="openHome"
+            android:background="@color/colorPrimary"
             android:text="@string/home"
+            android:onClick="openHome"
             android:textColor="#ffffff"/>
 
         <Button
@@ -27,7 +27,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
+            android:background="@color/colorPrimary"
             android:text="@string/alarm"
             android:textColor="#ffffff"/>
 
@@ -36,7 +36,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
+            android:background="@color/colorPrimary"
             android:onClick="openBored"
             android:text="@string/bored"
             android:textColor="#ffffff"/>
@@ -46,10 +46,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
+            android:background="@color/colorPrimary"
             android:onClick="openAchievements"
             android:text="@string/achieve"
             android:textColor="#ffffff"/>
+
 
     </android.widget.LinearLayout>
 
@@ -61,8 +62,10 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView"
         android:layout_marginTop="28dp"
+        android:background="#84abb6"
         android:onClick="openAlarmOne"
-        android:text="Alarm One" />
+        android:text="Alarm One"
+        android:textColor="@color/cardview_light_background" />
 
     <Button
         android:id="@+id/alarmTwoButton"
@@ -72,8 +75,10 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/alarmOneButton"
         android:layout_marginTop="12dp"
+        android:background="#84abb6"
         android:onClick="openAlarmTwo"
-        android:text="Alarm Two" />
+        android:text="Alarm Two"
+        android:textColor="@color/cardview_light_background" />
 
     <Button
         android:id="@+id/alarmThreeButton"
@@ -83,8 +88,10 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/alarmTwoButton"
         android:layout_marginTop="17dp"
+        android:background="#84abb6"
         android:onClick="openAlarmThree"
-        android:text="AlarmThree" />
+        android:text="AlarmThree"
+        android:textColor="@color/cardview_light_background" />
 
     <Button
         android:id="@+id/alarmFourButton"
@@ -94,8 +101,10 @@
         android:layout_alignStart="@+id/alarmThreeButton"
         android:layout_below="@+id/alarmThreeButton"
         android:layout_marginTop="26dp"
+        android:background="#84abb6"
         android:onClick="openAlarmFour"
-        android:text="Alarm Four" />
+        android:text="Alarm Four"
+        android:textColor="@color/cardview_light_background" />
 
     <Button
         android:id="@+id/alarmFiveButton"
@@ -105,7 +114,10 @@
         android:layout_alignStart="@+id/alarmFourButton"
         android:layout_below="@+id/alarmFourButton"
         android:layout_marginTop="19dp"
+        android:background="#84abb6"
         android:onClick="openAlarmFive"
-        android:text="Alarm Five" />
+        android:text="Alarm Five"
+        android:textColor="@color/cardview_light_background" />
 
 </android.widget.RelativeLayout>
+

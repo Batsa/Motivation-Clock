@@ -54,7 +54,7 @@ public class home extends AppCompatActivity {
                 .addSubMenu(Color.parseColor("#84abb6"),R.drawable.ic_house)
                 .addSubMenu(Color.parseColor("#84abb6"),R.drawable.ic_clock)
                 .addSubMenu(Color.parseColor("#84abb6"),R.drawable.ic_bored)
-                .addSubMenu(Color.parseColor("#84abb6"),R.drawable.ic_trophy)
+                .addSubMenu(Color.parseColor("#84abb6"),R.drawable.ic_star)
 
                 .setOnMenuSelectedListener(new OnMenuSelectedListener() {
                     @Override
