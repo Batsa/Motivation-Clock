@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login3"
     tools:context="com.blogspot.pocketma.motivationclock.login">
 
     <com.google.android.gms.common.SignInButton
@@ -13,9 +14,4 @@
         android:id="@+id/googleBtn"></com.google.android.gms.common.SignInButton>
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/logo"
-        />
 </RelativeLayout>

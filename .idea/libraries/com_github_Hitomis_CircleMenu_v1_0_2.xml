@@ -1,8 +1,13 @@
 <component name="libraryTable">
   <library name="com.github.Hitomis:CircleMenu-v1.0.2">
     <CLASSES>
+<<<<<<< HEAD
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/CircleMenu-v1.0.2.aar/fa9d8c7665f5f860981b7b336ced9550/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/CircleMenu-v1.0.2.aar/fa9d8c7665f5f860981b7b336ced9550/res" />
+=======
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/CircleMenu-v1.0.2.aar/147c7771e9e76e7292d1affa2ea10637/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/CircleMenu-v1.0.2.aar/147c7771e9e76e7292d1affa2ea10637/res" />
+>>>>>>> 4d01b66352f4301da8deb5d90702fabd1772084e
     </CLASSES>
     <JAVADOC />
     <SOURCES />

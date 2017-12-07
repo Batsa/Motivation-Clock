@@ -23,12 +23,30 @@ public class alarm_change extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_change);
+        Button alarmOneButton = findViewById(R.id.alarmOneButton);
+        Button alarmTwoButton = findViewById(R.id.alarmTwoButton);
+        Button alarmThreeButton = findViewById(R.id.alarmThreeButton);
+        Button alarmFourButton = findViewById(R.id.alarmFourButton);
+        Button alarmFiveButton = findViewById(R.id.alarmFiveButton);
         alarmTimeData = getIntent().getExtras();
         if (alarmTimeData == null)
             return;
         String alarmTimeString = alarmTimeData.getString("alarmOneTime");
-        Button alarmOneButton = findViewById(R.id.alarmOneButton);
-        alarmOneButton.setText(alarmTimeString);
+        if (alarmTimeString != null)
+            alarmOneButton.setText(alarmTimeString);
+        alarmTimeString = alarmTimeData.getString("alarmTwoTime");
+        if (alarmTimeString != null)
+            alarmTwoButton.setText(alarmTimeString);
+        alarmTimeString = alarmTimeData.getString("alarmThreeTime");
+        if (alarmTimeString != null)
+            alarmThreeButton.setText(alarmTimeString);
+        alarmTimeString = alarmTimeData.getString("alarmFourTime");
+        if (alarmTimeString != null)
+            alarmFourButton.setText(alarmTimeString);
+        alarmTimeString = alarmTimeData.getString("alarmFiveTime");
+        if(alarmTimeString != null)
+            alarmFiveButton.setText(alarmTimeString);
+
     }
 
 
