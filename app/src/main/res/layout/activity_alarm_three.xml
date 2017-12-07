@@ -1,31 +1,351 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.blogspot.pocketma.motivationclock.alarmThree">
+    tools:context="com.blogspot.pocketma.motivationclock.home">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
+
+    <!--this is the cancel button. if cancel is pressed it will go back to the Alarm page.-->
+    <android.widget.LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_alignParentBottom="true">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
+            android:onClick="openHome"
+            android:text="@string/home"
+            android:textColor="#ffffff" />
 
-    </android.support.design.widget.AppBarLayout>
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
+            android:onClick="openAlarm"
+            android:text="@string/alarm"
+            android:textColor="#ffffff" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
+            android:onClick="openBored"
+            android:text="@string/bored"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
+            android:onClick="openAchievements"
+            android:text="@string/achieve"
+            android:textColor="#ffffff" />
+
+    </android.widget.LinearLayout>
+
+    <Button
+        android:id="@+id/stopButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:backgroundTint="#DB0B0B"
+        android:onClick="stopAlarmOnClick"
+        android:text="Stop Alarm" />
 
-</android.support.design.widget.CoordinatorLayout>
+    <!--this is the save button. if this button is pressed. it will go back to the alarm page
+    and add that alarm to the alarm list-->
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:backgroundTint="#59EB23"
+        android:onClick="startAlarmOnClick"
+        android:text="Start Alarm" />
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/stopButton"
+        android:timePickerMode="spinner" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/alarmTitle"
+        android:layout_marginBottom="30dp">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="85dp" >
+
+            <RadioButton
+                android:id="@+id/createTheTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Create the time" />
+
+            <RadioButton
+                android:id="@+id/doOrDoNot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Do or do not, there is no try" />
+
+            <RadioButton
+                android:id="@+id/dontBeAfraid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Don't be afraid to fail" />
+
+            <RadioButton
+                android:id="@+id/justKeepSwimming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Just keep swimming" />
+
+            <RadioButton
+                android:id="@+id/focusOnWhatsRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Focus on what's right" />
+
+            <RadioButton
+                android:id="@+id/getOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Get out of your comfort zone" />
+
+            <RadioButton
+                android:id="@+id/ifYouCantTolerate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="If you can't tolerate" />
+
+            <RadioButton
+                android:id="@+id/inchesForTheWin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Game of inches" />
+
+            <RadioButton
+                android:id="@+id/investInYourself"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Invest in yourself" />
+
+            <RadioButton
+                android:id="@+id/itsAboutHowMuch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="It's about how much you can take" />
+
+            <RadioButton
+                android:id="@+id/judgeMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Judge me by my size" />
+
+            <RadioButton
+                android:id="@+id/keepGoing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Keep going and never go back" />
+
+            <RadioButton
+                android:id="@+id/keepPushing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Keep pushing and don't go back" />
+
+            <RadioButton
+                android:id="@+id/thePastCanHurt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="The past can hurt" />
+
+            <RadioButton
+                android:id="@+id/listenAndFollow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Listen and follow your heart" />
+
+            <RadioButton
+                android:id="@+id/masterOogway"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Master Oogway" />
+
+            <RadioButton
+                android:id="@+id/mistakesMake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Mistakes make a person" />
+
+            <RadioButton
+                android:id="@+id/painGoesTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Pain goes to the next level" />
+
+            <RadioButton
+                android:id="@+id/seeTheBelief"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="See the Belief within yourself" />
+
+            <RadioButton
+                android:id="@+id/thinkBig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Think big but start small" />
+        </RadioGroup>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/alarmTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/repeatDaysLayout"
+        android:layout_marginTop="30dp"
+        android:text="Sound Clip Selection"
+        android:textColor="@android:color/black" />
+
+    <LinearLayout
+        android:id="@+id/repeatDaysLayout"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/timePicker"
+        android:layout_marginTop="27dp"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/sundayBox"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:buttonTint="@color/colorPrimary"
+            android:checked="false"
+            android:text="S" />
+
+        <CheckBox
+            android:id="@+id/mondayBox"
+            android:layout_width="54dp"
+            android:layout_height="match_parent"
+            android:buttonTint="@color/colorPrimary"
+            android:text="M" />
+
+        <CheckBox
+            android:id="@+id/tuesdayBox"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:buttonTint="@color/colorPrimary"
+            android:text="T" />
+
+        <CheckBox
+            android:id="@+id/wednesdayBox"
+            android:layout_width="27dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:buttonTint="@color/colorPrimary"
+            android:text="W" />
+
+        <CheckBox
+            android:id="@+id/thursdayBox"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:buttonTint="@color/colorPrimary"
+            android:text="T" />
+
+        <CheckBox
+            android:id="@+id/fridayBox"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:buttonTint="@color/colorPrimary"
+            android:text="F" />
+
+        <CheckBox
+            android:id="@+id/saturdayBox"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:buttonTint="@color/colorPrimary"
+            android:text="S" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/repeatText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/timePicker"
+        android:text="Repeat"
+        android:textColor="@android:color/black" />
+
+</android.widget.RelativeLayout>
