@@ -17,6 +17,7 @@ import android.content.Context;
 import android.widget.Button;
 import android.app.AlertDialog;
 import java.util.Calendar;
+import java.util.Date;
 
 public class alarmOne extends AppCompatActivity {
 
@@ -72,9 +73,15 @@ public class alarmOne extends AppCompatActivity {
         int clipNumber = getSoundClip();
         alarmSetIntent.putExtra("alarmClipNumber", clipNumber);
         pendingIntent = PendingIntent.getBroadcast(alarmOne.this, 0, alarmSetIntent, pendingIntent.FLAG_UPDATE_CURRENT);
+        Date currentTime = Calendar.getInstance().getTime();
 
-        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-
+        if (calendar.getTime().compareTo(currentTime) == -1){
+             calendar.set(Calendar.HOUR_OF_DAY,alarmTimePicker.getHour() + 24);
+             alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+             }
+        else
+            alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+        
         if(isSundayChecked.isChecked()){
             //Toast.makeText(getApplicationContext(), "Sunday is Checked", Toast.LENGTH_SHORT).show();
             calendar.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY );
