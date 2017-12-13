@@ -1,13 +1,8 @@
 <component name="libraryTable">
   <library name="com.google.firebase:firebase-database-connection-license-11.6.0">
     <CLASSES>
-<<<<<<< HEAD
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-database-connection-license-11.6.0.aar/874cf931d139e0a1acbde74fe2411f5a/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-database-connection-license-11.6.0.aar/874cf931d139e0a1acbde74fe2411f5a/res" />
-=======
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-database-connection-license-11.6.0.aar/320f910a2dad40ae648de4bf3e1b89fe/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-database-connection-license-11.6.0.aar/320f910a2dad40ae648de4bf3e1b89fe/res" />
->>>>>>> 4d01b66352f4301da8deb5d90702fabd1772084e
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-database-connection-license-11.6.0.aar/50d272184fdd91abe5fe31ecf9ad1c8a/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-database-connection-license-11.6.0.aar/50d272184fdd91abe5fe31ecf9ad1c8a/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

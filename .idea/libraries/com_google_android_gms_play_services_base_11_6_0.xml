@@ -1,13 +1,8 @@
 <component name="libraryTable">
   <library name="com.google.android.gms:play-services-base-11.6.0">
     <CLASSES>
-<<<<<<< HEAD
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/115a8d73af4abcd89fd02e7dd6b43acf/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/115a8d73af4abcd89fd02e7dd6b43acf/res" />
-=======
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/e8ee96faf803bcd83b792e9836667a2a/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/e8ee96faf803bcd83b792e9836667a2a/res" />
->>>>>>> 4d01b66352f4301da8deb5d90702fabd1772084e
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/e28a748aed7b3852095fd23844c9267b/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/e28a748aed7b3852095fd23844c9267b/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
